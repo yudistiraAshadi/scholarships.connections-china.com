@@ -15,12 +15,21 @@ class CreateUniversitiesTable extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->increments('id');
+            
+            // Basic information
             $table->string('name');
             $table->string('logo');
             $table->text('introduction')->nullable();
+
+            // Address
             $table->string('country');
             $table->string('governing_district'); // Province, State
             $table->string('major_municipality'); // Town, City
+            $table->string('minor_municipality'); // District
+            $table->string('street_name');
+            $table->string('detailed_address');
+
+            // Other information
             $table->json('courses');
             $table->json('photos');
             $table->timestamps();

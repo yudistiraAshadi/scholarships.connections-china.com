@@ -15,14 +15,20 @@ class CreateScholarshipsTable extends Migration
     {
         Schema::create('scholarships', function (Blueprint $table) {
             $table->increments('id');
+
+            // Information
             $table->integer('university_id')->unsigned()->index();
-            $table->integer('number_of_seats');
+            $table->text('information'); // Benefits, or other information
+            $table->text('requirements');
             $table->json('courses');
+
+            // Scopes
+            $table->integer('number_of_seats');
+            $table->date('application_deadline');
+
+            // Types
             $table->enum('scholarship_type', ['full', 'partial']);
             $table->enum('student_type', ['undergraduate', 'graduate']);
-            $table->date('application_deadline');
-            $table->text('information');
-            $table->text('requirements');
             $table->timestamps();
         });
     }
