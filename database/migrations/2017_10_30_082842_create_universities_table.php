@@ -26,12 +26,11 @@ class CreateUniversitiesTable extends Migration
             $table->string('governing_district'); // Province, State
             $table->string('major_municipality'); // Town, City
             $table->string('minor_municipality'); // District
-            $table->string('street_name');
             $table->string('detailed_address');
 
             // Other information
-            $table->json('courses');
-            $table->json('photos');
+            $table->text('courses');
+            $table->text('photos');
             $table->timestamps();
         });
     }

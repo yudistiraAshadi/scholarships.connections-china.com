@@ -18,9 +18,10 @@ class CreateScholarshipsTable extends Migration
 
             // Information
             $table->integer('university_id')->unsigned()->index();
-            $table->text('information'); // Benefits, or other information
+            $table->text('benefits');
             $table->text('requirements');
-            $table->json('courses');
+            $table->text('other_information');
+            $table->text('courses');
 
             // Scopes
             $table->integer('number_of_seats');
