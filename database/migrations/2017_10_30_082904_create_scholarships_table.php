@@ -20,7 +20,7 @@ class CreateScholarshipsTable extends Migration
             $table->integer('university_id')->unsigned()->index();
             $table->text('benefits');
             $table->text('requirements');
-            $table->text('other_information');
+            $table->text('other_information')->nullable();
             $table->text('courses');
 
             // Scopes

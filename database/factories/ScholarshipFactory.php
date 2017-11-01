@@ -8,7 +8,7 @@ $factory->define(App\Scholarship::class, function (Faker $faker) {
     return [
         'benefits' => implode('|', $faker->words),
         'requirements' => implode('|', $faker->words),
-        'other_information' => $faker->text,
+        'other_information' => $faker->optional()->text,
         'courses' => implode('|', $faker->words),
 
         'number_of_seats' => $faker->numberBetween($min = 1, $max = 100),

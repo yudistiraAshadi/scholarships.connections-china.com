@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\University::class, function (Faker $faker) {
     return [
-        'name' => $faker->firstName,
+        'name' => $faker->unique()->company,
         'logo' => $faker->imageUrl,
         'introduction' => $faker->optional()->text,
 
@@ -14,8 +14,8 @@ $factory->define(App\University::class, function (Faker $faker) {
         'country' => 'usa',
         'governing_district' => $faker->state,
         'major_municipality' => $faker->city,
-        'minor_municipality' => 'district',
-        'detailed_address' => $faker->streetName,
+        'minor_municipality' => $faker->streetName,
+        'detailed_address' => $faker->streetAddress,
 
         // Other information
         'courses' => implode('|', $faker->words),
