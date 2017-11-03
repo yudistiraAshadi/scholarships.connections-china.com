@@ -20,5 +20,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', function() {
+    $results = App\University::search('llc')
+        ->within('universities_name.index')
+        ->get();
     
+    $results_gov_district = App\University::search('florida')
+        ->within('universities_governing_district.index')
+        ->get();
+    
+    $results = $results->merge($results_gov_district);
+    
+    dd($results);
 });
