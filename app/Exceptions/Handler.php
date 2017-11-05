@@ -48,6 +48,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof HttpException
+            && $request->wantsJson()) {
+            return response()->json($exception->getMessage(), $exception->getStatusCode());
+        }
+
         return parent::render($request, $exception);
     }
 }

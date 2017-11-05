@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group([
+    'namespace' => 'Search',
+    'prefix' => 'search'
+], function() {
+    
+    /**
+     * Scholarship search routes
+     */
+     Route::post('/advanced/scholarship', 'Scholarship\SearchController@advancedSearch');
+});

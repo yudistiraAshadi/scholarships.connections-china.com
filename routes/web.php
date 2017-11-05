@@ -18,12 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/search', function() {
-    
-    $result = App\Scholarship::search('')
-        ->within('scholarships_university_name_only')
-        ->get();
-
-    return $result;
-});
