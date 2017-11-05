@@ -12,7 +12,9 @@ $factory->define(App\Scholarship::class, function (Faker $faker) {
         'courses' => implode('|', $faker->words),
 
         'number_of_seats' => $faker->numberBetween($min = 1, $max = 100),
-        'application_deadline' => $faker->dateTimeBetween($startDate = '+3 months', $endDate = '+1 years'),
+        'application_deadline' => $faker
+            ->dateTimeBetween($startDate = '+3 months', $endDate = '+1 years')
+            ->format('Y-m-d H:i:s'),
         'scholarship_type' => $faker->randomElement($array = ['full', 'partial']),
         'student_type' => $faker->randomElement($array = ['undergraduate', 'graduate']),
     ];
