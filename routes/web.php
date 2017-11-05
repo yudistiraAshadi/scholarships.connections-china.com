@@ -20,18 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', function() {
-    $results = App\University::search('ltd')
-        ->within('universities_name_only_asc')
+    
+    $result = App\Scholarship::search('')
+        ->within('scholarships_university_name_only')
         ->get();
-    
-    $results_gov_district = App\University::search('michigan')
-        ->within('universities_governing_district_only_asc')
-        ->get();
-    
 
-    $scholarships = App\Scholarship::search()->get();
-
-    $results = $results->merge($results_gov_district);
-    
-    dd($scholarships);
+    return $result;
 });

@@ -18,23 +18,25 @@ class University extends Model
     {
         return [
             'universities',
-            'universities_name_only_asc',
-            'universities_governing_district_only_asc'
+            'universities_name_only',
+            'universities_governing_district_only'
         ];
     }
 
     public function customToSearchableArray($customSearchableAsIndex)
     {
         switch ($customSearchableAsIndex) {
+            case 0:
+                return $this->toArray();
             case 1:
                 return [
-                    'name' => $this->name,
                     'id' => $this->id, 
+                    'name' => $this->name,
                 ];
             case 2:
                 return [
+                    'id' => $this->id,
                     'governing_district' => $this->governing_district,
-                    'id' => $this->id
                 ];
             default:
                 return $this->toArray();

@@ -31,12 +31,6 @@ class CustomTNTSearchScoutServiceProvider extends ServiceProvider
 
             return new CustomTNTSearchEngine($tnt);
         });
-
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                ImportCommand::class,
-            ]);
-        }
     }
 
     protected function setFuzziness($tnt)
