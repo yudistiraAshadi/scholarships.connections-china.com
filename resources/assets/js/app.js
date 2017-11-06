@@ -17,6 +17,14 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+/**
+ * Search Components...
+ */
+// Scholarship Search Components
+Vue.component('scholarship-search-form', require('./components/search/scholarship/SearchFormComponent.vue'));
+Vue.component('scholarship-search-result', require('./components/search/scholarship/SearchResultComponent.vue'));
+Vue.component('scholarship-search', require('./components/search/scholarship/ScholarshipSearchComponent.vue'));
+
 const app = new Vue({
     el: '#app'
 });

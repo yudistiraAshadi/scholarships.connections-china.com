@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     <!-- TODO Fill with search functions -->
+                    <search-scholarship></search-scholarship>
                 </div>
             </div>
         </div>
