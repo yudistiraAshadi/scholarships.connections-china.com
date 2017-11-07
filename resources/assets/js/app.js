@@ -21,10 +21,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * Search Components...
  */
 // Scholarship Search Components
-Vue.component('scholarship-search-form', require('./components/search/scholarship/SearchFormComponent.vue'));
-Vue.component('scholarship-search-result', require('./components/search/scholarship/SearchResultComponent.vue'));
-Vue.component('scholarship-search', require('./components/search/scholarship/ScholarshipSearchComponent.vue'));
+Vue.component('scholarship-search-form', require('./components/search/scholarship/SearchForm.vue'));
+Vue.component('scholarship-search-results', require('./components/search/scholarship/SearchResults.vue'));
+Vue.component('scholarship-search-result-item', require('./components/search/scholarship/SearchResultItem.vue'));
+Vue.component('scholarship-search', require('./components/search/scholarship/ScholarshipSearch.vue'));
+
+import store from './store';
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });

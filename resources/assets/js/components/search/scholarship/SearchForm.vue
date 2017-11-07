@@ -19,7 +19,7 @@
             <label for="scholarshipType">Scholarship Type</label>
             <select id="scholarshipType" class="form-control" v-model="scholarshipType">
                 <option value="" disabled>Select type</option>
-                <option value="" selected="selected">All sype</option>
+                <option value="" selected="selected">All type</option>
                 <option value="full">Full scholarship</option>
                 <option value="partial">Partial scholarship</option>
             </select>
@@ -33,11 +33,13 @@
             Search
         </button>
 
-
     </div>
 </template>
 
 <script>
+
+import { mapActions } from 'vuex';
+
 export default {
     data () {
         return {
@@ -48,14 +50,22 @@ export default {
         }
     },
     methods: {
+        ...mapActions([
+            'scholarshipSearchResultsChanged'
+        ]),
         search () {
-            // Emit an event and send all the scholarship search keywords
-            this.$emit('scholarship-search-submitted', {
-                universityName: this.universityName,
-                studentType: this.studentType,
-                scholarshipType: this.scholarshipType,
-                courses: this.courses
-            });
+            axios.post('/api/search/advanced/scholarship', {
+                    university_name: this.universityName,
+                    student_type: this.studentType,
+                    scholarship_type: this.scholarshipType,
+                    courses: this.courses
+                })
+                .then((res) => {
+                    this.scholarshipSearchResultsChanged(res.data);
+                })
+                .catch((err) => {
+                    console.log(err.response);
+                });
         }
     }
 }

@@ -4,14 +4,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
             <div class="panel panel-default">
                 <div class="panel-heading">Search Scholarship Form</div>
 
                 <div class="panel-body">
-                    <!-- TODO Fill with search functions -->
-                    <search-scholarship></search-scholarship>
+                    <scholarship-search-form></scholarship-search-form>
                 </div>
+                
+                <!-- Search results table -->
+                <scholarship-search-results></scholarship-search-results>
             </div>
+            
         </div>
     </div>
 </div>
