@@ -3,15 +3,17 @@
        <thead>
             <tr>
                 <th>University</th>
-                <th>Courses</th>
-                <th>Application Deadline</th>
+                <th>Program</th>
+                <th>Language</th>
+                <th>Scolarship Category</th>
+                <th>Degree</th>
             </tr>
        </thead>
        <tbody>
             <scholarship-search-result-item
                 v-for="scholarship in this.scholarshipSearchResults"
                 :key="scholarship.id"
-                :scholarship="scholarship" />
+                v-bind:scholarship="scholarship" />
        </tbody>
     </table>
 </template>

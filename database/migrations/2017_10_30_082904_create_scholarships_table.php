@@ -21,15 +21,16 @@ class CreateScholarshipsTable extends Migration
             $table->text('benefits');
             $table->text('requirements');
             $table->text('other_information')->nullable();
-            $table->text('courses');
+            $table->text('program');
+            $table->integer('program_language_id')->unsigned()->index();
 
             // Scopes
             $table->integer('number_of_seats');
             $table->date('application_deadline');
 
             // Types
-            $table->enum('scholarship_type', ['full', 'partial']);
-            $table->enum('student_type', ['undergraduate', 'graduate']);
+            $table->integer('scholarship_type_id')->unsigned()->index();
+            $table->integer('degree_type_id')->unsigned()->index();
             $table->timestamps();
         });
     }

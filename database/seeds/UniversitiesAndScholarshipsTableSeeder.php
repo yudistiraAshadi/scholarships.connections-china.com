@@ -11,10 +11,12 @@ class UniversitiesAndScholarshipsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\University::class, rand($min = 10, $max = 50))
+        factory(App\Models\University::class, rand($min = 10, $max = 50))
             ->create()
-            ->each(function (App\University $university) {
-                factory(App\Scholarship::class, rand($min = 1, $max = 10))
+            ->each(function (App\Models\University $university) {
+
+                // Create Scholarships and link university->id to scholarship->university_id
+                factory(App\Models\Scholarship::class, rand($min = 1, $max = 10))
                     ->create([
                         'university_id' => $university->id,
                     ]);

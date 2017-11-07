@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 /* @var Illuminate\Database\Eloquent\Factory $factory */
 
-$factory->define(App\University::class, function (Faker $faker) {
+$factory->define(App\Models\University::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->company,
         'logo' => $faker->imageUrl,
@@ -18,7 +18,6 @@ $factory->define(App\University::class, function (Faker $faker) {
         'detailed_address' => $faker->streetAddress,
 
         // Other information
-        'courses' => implode('|', $faker->words),
         'photos' => implode('|', 
             $faker->randomElements($array = [$faker->imageUrl, $faker->imageUrl], $count = 2)
         ),

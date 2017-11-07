@@ -17,7 +17,7 @@ class CreateUniversitiesTable extends Migration
             $table->increments('id');
             
             // Basic information
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('logo');
             $table->text('introduction')->nullable();
 
@@ -29,7 +29,6 @@ class CreateUniversitiesTable extends Migration
             $table->string('detailed_address');
 
             // Other information
-            $table->text('courses');
             $table->text('photos');
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Search\Scholarship;
 
-use App\Scholarship;
+use App\Models\Scholarship;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,16 +13,29 @@ class SearchController extends Controller
         /**
          * Assign request inputs to variables
          */
-        $universityNameRequest = $request->input('university_name');
-        $studentTypeRequest = $request->input('student_type');
+
         $scholarshipTypeRequest = $request->input('scholarship_type');
-        $coursesRequest = $request->input('courses');
+        $universityNameRequest = $request->input('university_name');
+        $degreeTypeRequest = $request->input('degree_type');
+        $programLanguageRequest = $request->input('program_language');
+        $programRequest = $request->input('program');
 
 
         /**
          * Search indices based on the input and combine all the results
          */
         $result = Scholarship::all();
+
+        if (isset($scholarshipTypeRequest) && !empty($scholarshipTypeRequest)) {
+            
+            $scholarshipType = Scholarship::search($scholarshipTypeRequest)
+                ->within('scholarships_scholarship_type_only')
+                ->get();
+                
+            if (! empty($scholarshipType)) {
+                $result = $result->intersect($scholarshipType);
+            }
+        }
 
         if (isset($universityNameRequest) && !empty($universityNameRequest)) {
 
@@ -35,39 +48,45 @@ class SearchController extends Controller
             }
         }
 
-        if (isset($studentTypeRequest) && !empty($studentTypeRequest)) {
+        if (isset($degreeTypeRequest) && !empty($degreeTypeRequest)) {
 
-            $studentType = Scholarship::search($studentTypeRequest)
-                ->within('scholarships_student_type_only')
+            $degreeType = Scholarship::search($degreeTypeRequest)
+                ->within('scholarships_degree_type_only')
                 ->get();
 
-            if (! empty($studentType)) {
-                $result = $result->intersect($studentType);
+            if (! empty($degreeType)) {
+                $result = $result->intersect($degreeType);
             }
         }
         
-        if (isset($scholarshipTypeRequest) && !empty($scholarshipTypeRequest)) {
-
-            $scholarshipType = Scholarship::search($scholarshipTypeRequest)
-                ->within('scholarships_scholarship_type_only')
+        if (isset($programLanguageRequest) && !empty($programLanguageRequest)) {
+            
+            $programLanguage = Scholarship::search($programLanguageRequest)
+                ->within('scholarships_program_language_only')
                 ->get();
                 
-            if (! empty($scholarshipType)) {
-                $result = $result->intersect($scholarshipType);
+            if (! empty($programLanguage)) {
+                $result = $result->intersect($programLanguage);
             }
         }
-        
-        if (isset($coursesRequest) && !empty($coursesRequest)) {
 
-            $courses = Scholarship::search($coursesRequest)
-                ->within('scholarships_courses_only')
+        if (isset($programRequest) && !empty($programRequest)) {
+
+            $program = Scholarship::search($programRequest)
+                ->within('scholarships_program_only')
                 ->get();
 
-            if (! empty($courses)) {
-                $result = $result->intersect($courses);
+            if (! empty($program)) {
+                $result = $result->intersect($program);
             }
         }
 
-        return $result->load('university');
+        // Return thre result's collection along with the relationships
+        return $result->load(
+            'university',
+            'programLanguage',
+            'scholarshipType',
+            'degreeType'
+        );
     }
 }
