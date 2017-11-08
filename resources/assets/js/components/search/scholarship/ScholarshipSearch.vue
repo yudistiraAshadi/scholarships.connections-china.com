@@ -14,11 +14,11 @@
 
 <script>
 export default {
-    data () {
+    data: function () {
 
     },
     methods: {
-        searchScholarship (data) {
+        searchScholarship: function (data) {
             axios.post('/api/search/advanced/scholarship', {
                     university_name: data.universityName,
                     student_type: data.studentType,
@@ -27,7 +27,7 @@ export default {
                 })
                 .then((res) =>{
 
-                })
+                });
         }
     }
 }

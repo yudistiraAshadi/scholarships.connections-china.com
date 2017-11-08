@@ -1,5 +1,6 @@
 <template>
     <tr>
+        <td></td>
         <td>{{ scholarship.university.name }}</td>
         <td>{{ scholarship.program }}</td>
         <td>{{ scholarship.program_language.language }}</td> 

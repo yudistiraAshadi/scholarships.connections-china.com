@@ -23,7 +23,8 @@
                         id="scholarshipType"
                         :value="scholarshipTypeOption.type"
                         v-model="scholarshipType"
-                        @keyup.enter.prevent="search"> {{ scholarshipTypeOption.type }} Scholarship
+                        @keyup.enter.prevent="search">
+                         {{ scholarshipTypeOption.type | capitalize }} Scholarship
                 </label>
             </div>
         </div>
@@ -64,7 +65,8 @@
                         id="degreeType"
                         :value="degreeTypeOption.type" 
                         v-model="degreeType"
-                        @keyup.enter.prevent="search"> {{ degreeTypeOption.type }}
+                        @keyup.enter.prevent="search">
+                         {{ degreeTypeOption.type | capitalize }}
                 </label>
             </div>
         </div>
@@ -90,7 +92,8 @@
                         id="programLanguage"
                         :value="programLanguageOption.language" 
                         v-model="programLanguage"
-                        @keyup.enter.prevent="search"> {{ programLanguageOption.language }}
+                        @keyup.enter.prevent="search">
+                         {{ programLanguageOption.language | capitalize }}
                 </label>
             </div>
         </div>
@@ -120,7 +123,7 @@
 import { mapActions } from 'vuex';
 
 export default {
-    data () {
+    data: function () {
         return {
             // Data for options showing.
             scholarshipTypeLists: [],
@@ -140,7 +143,7 @@ export default {
         ...mapActions([
             'scholarshipSearchResultsChanged'
         ]),
-        search () {
+        search: function () {
             axios.post('/api/search/advanced/scholarship', {
                     scholarship_type: this.scholarshipType,
                     university_name: this.universityName,
@@ -156,7 +159,7 @@ export default {
                 });
         }
     },
-    beforeCreate () {
+    beforeCreate: function () {
         // Get all data for search options
         axios.all([
                 axios.get('/api/model/statics/scholarship-type'),
@@ -176,6 +179,15 @@ export default {
             .catch((err) => {
                 console.log(err.response);
             })
+    },
+    filters: {
+        capitalize: function (value) {
+            if (!value) {
+                return '';
+            }
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        }
     }
 }
 </script>

@@ -44088,7 +44088,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44252,6 +44252,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
 
 
 
@@ -44273,7 +44276,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             program: ''
         };
     },
-
     methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['scholarshipSearchResultsChanged']), {
         search: function search() {
             var _this = this;
@@ -44303,6 +44305,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         })).catch(function (err) {
             console.log(err.response);
         });
+    },
+    filters: {
+        capitalize: function capitalize(value) {
+            if (!value) {
+                return '';
+            }
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        }
     }
 });
 
@@ -44404,8 +44415,8 @@ var render = function() {
                   }
                 }),
                 _vm._v(
-                  " " +
-                    _vm._s(scholarshipTypeOption.type) +
+                  "\n                     " +
+                    _vm._s(_vm._f("capitalize")(scholarshipTypeOption.type)) +
                     " Scholarship\n            "
                 )
               ]
@@ -44563,7 +44574,11 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v(" " + _vm._s(degreeTypeOption.type) + "\n            ")
+                _vm._v(
+                  "\n                     " +
+                    _vm._s(_vm._f("capitalize")(degreeTypeOption.type)) +
+                    "\n            "
+                )
               ]
             )
           })
@@ -44661,8 +44676,10 @@ var render = function() {
                   }
                 }),
                 _vm._v(
-                  " " +
-                    _vm._s(programLanguageOption.language) +
+                  "\n                     " +
+                    _vm._s(
+                      _vm._f("capitalize")(programLanguageOption.language)
+                    ) +
                     "\n            "
                 )
               ]
@@ -44831,7 +44848,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44865,12 +44882,68 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['scholarshipSearchResults']))
+    data: function data() {
+        var tableHeads = [{ key: { name: 'university', attr: 'name' }, name: 'University' }, { key: 'program', name: 'Program' }, { key: { name: 'program_language', attr: 'language' }, name: 'Language' }, { key: { name: 'scholarship_type', attr: 'type' }, name: 'Scholarship Category' }, { key: { name: 'degree_type', attr: 'type' }, name: 'Degree' }];
+        var sortOrders = {};
+
+        tableHeads.forEach(function (tableHead) {
+            sortOrders[tableHead.key] = 1;
+        });
+
+        return {
+            tableHeads: tableHeads,
+            sortKey: '',
+            sortOrders: sortOrders,
+            activeSortKeyName: ''
+        };
+    },
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['scholarshipSearchResults']), {
+        filteredTableBody: function filteredTableBody() {
+            var sortKey = this.sortKey;
+            var filterKey = this.filterKey && this.filterKey.toLowerCase();
+            var order = this.sortOrders[sortKey] || 1;
+            var scholarshipSearchResults = this.scholarshipSearchResults;
+
+            if (filterKey) {
+                scholarshipSearchResults = scholarshipSearchResults.filter(function (row) {
+                    return Object.keys(row).some(function (key) {
+                        return String(row[key]).toLowerCase().indexOf(filterKey) > -1;
+                    });
+                });
+            }
+
+            if (sortKey) {
+                if (sortKey instanceof Object) {
+                    scholarshipSearchResults = scholarshipSearchResults.slice().sort(function (a, b) {
+                        a = a[sortKey.name][sortKey.attr];
+                        b = b[sortKey.name][sortKey.attr];
+                        return (a === b ? 0 : a > b ? 1 : -1) * order;
+                    });
+                } else {
+                    scholarshipSearchResults = scholarshipSearchResults.slice().sort(function (a, b) {
+                        a = a[sortKey];
+                        b = b[sortKey];
+                        return (a === b ? 0 : a > b ? 1 : -1) * order;
+                    });
+                }
+            }
+
+            return scholarshipSearchResults;
+        }
+    }),
+    methods: {
+        sortBy: function sortBy(tableHead) {
+            this.activeSortKeyName = tableHead.name;
+            this.sortKey = tableHead.key;
+            this.sortOrders[tableHead.key] = this.sortOrders[tableHead.key] * -1;
+        }
+    }
 });
 
 /***/ }),
@@ -44882,39 +44955,49 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("table", { staticClass: "table table-hover" }, [
-    _vm._m(0),
+    _c("thead", [
+      _c(
+        "tr",
+        [
+          _c("th"),
+          _vm._v(" "),
+          _vm._l(_vm.tableHeads, function(tableHead) {
+            return _c(
+              "th",
+              {
+                class: { active: _vm.activeSortKeyName == tableHead.name },
+                on: {
+                  click: function($event) {
+                    _vm.sortBy(tableHead)
+                  }
+                }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(tableHead.name) +
+                    "\n            "
+                )
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ]),
     _vm._v(" "),
     _c(
       "tbody",
-      _vm._l(this.scholarshipSearchResults, function(scholarship) {
+      _vm._l(_vm.filteredTableBody, function(scholarship, index) {
         return _c("scholarship-search-result-item", {
-          key: scholarship.id,
+          key: index,
           attrs: { scholarship: scholarship }
         })
       })
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("University")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Program")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Language")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Scolarship Category")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Degree")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -45011,7 +45094,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -45022,6 +45105,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -45046,6 +45130,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", [
+    _c("td"),
+    _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.scholarship.university.name))]),
     _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.scholarship.program))]),
@@ -45182,7 +45268,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {},
-
     methods: {
         searchScholarship: function searchScholarship(data) {
             axios.post('/api/search/advanced/scholarship', {
