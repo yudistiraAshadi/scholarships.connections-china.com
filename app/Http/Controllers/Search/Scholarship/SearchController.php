@@ -6,14 +6,64 @@ use App\Models\Scholarship;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Statics\DegreeType;
+use App\Models\Statics\ProgramLanguage;
+use App\Models\Statics\ScholarshipType;
+use App\Models\University;
+
 class SearchController extends Controller
 {
+    public function advancedSearchOptions()
+    {
+        /**
+         * Get all the models related to the search options
+         */
+        $scholarshipTypesCollection = ScholarshipType::all();
+        $universitiesCollection = University::all();
+        $degreeTypesCollection = DegreeType::all();
+        $programLanguagesCollection = ProgramLanguage::all();
+
+
+        /**
+         * Break down the models into array of strings
+         */
+        $scholarshipTypes = [];
+        foreach ($scholarshipTypesCollection as $scholarshipType) {
+            $scholarshipTypes[] = $scholarshipType->type;
+        };
+        
+        $universityNames = [];
+        foreach ($universitiesCollection as $university) {
+            $universityNames[] = $university->name;
+        };
+
+        $degreeTypes = [];
+        foreach ($degreeTypesCollection as $degreeType) {
+            $degreeTypes[] = $degreeType->type;
+        };
+
+        $programLanguages = [];
+        foreach ($programLanguagesCollection as $programLanguage) {
+            $programLanguages[] = $programLanguage->language;
+        };
+        
+
+        /**
+         * Return an array of search options
+         */
+        return [
+            'scholarship_types' => $scholarshipTypes,
+            'university_names' => $universityNames,
+            'degree_types' => $degreeTypes,
+            'program_languages' => $programLanguages,
+        ];
+    }
+
     public function advancedSearch(Request $request)
     {
         /**
          * Assign request inputs to variables
          */
-
         $scholarshipTypeRequest = $request->input('scholarship_type');
         $universityNameRequest = $request->input('university_name');
         $degreeTypeRequest = $request->input('degree_type');

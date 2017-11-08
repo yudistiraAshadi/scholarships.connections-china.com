@@ -16,15 +16,14 @@
                 </label>
                 <label
                     class="radio-inline"
-                    v-for="scholarshipTypeOption in scholarshipTypeLists"
-                    v-bind:key="scholarshipTypeOption.id">
+                    v-for="scholarshipTypeOption in searchOptions.scholarship_types">
                     <input
                         type="radio"
                         id="scholarshipType"
-                        :value="scholarshipTypeOption.type"
+                        :value="scholarshipTypeOption"
                         v-model="scholarshipType"
                         @keyup.enter.prevent="search">
-                         {{ scholarshipTypeOption.type | capitalize }} Scholarship
+                         {{ scholarshipTypeOption | capitalize }} Scholarship
                 </label>
             </div>
         </div>
@@ -35,10 +34,9 @@
                 <select id="universityName" class="form-control" v-model="universityName">
                     <option value="">All</option>
                     <option 
-                        v-for="universityNameOption in universityLists"
-                        v-bind:key="universityNameOption.id"
-                        :value="universityNameOption.name">
-                        {{ universityNameOption.name }}    
+                        v-for="universityNameOption in searchOptions.university_names"
+                        :value="universityNameOption">
+                        {{ universityNameOption }}    
                     </option>
                 </select>
             </div>
@@ -58,15 +56,14 @@
                 </label>
                 <label
                     class="radio-inline"
-                    v-for="degreeTypeOption in degreeTypeLists"
-                    v-bind:key="degreeTypeOption.id">
+                    v-for="degreeTypeOption in searchOptions.degree_types">
                     <input 
                         type="radio" 
                         id="degreeType"
-                        :value="degreeTypeOption.type" 
+                        :value="degreeTypeOption" 
                         v-model="degreeType"
                         @keyup.enter.prevent="search">
-                         {{ degreeTypeOption.type | capitalize }}
+                         {{ degreeTypeOption | capitalize }}
                 </label>
             </div>
         </div>
@@ -85,15 +82,14 @@
                 </label>
                 <label
                     class="radio-inline"
-                    v-for="programLanguageOption in programLanguageLists"
-                    v-bind:key="programLanguageOption.id">
+                    v-for="programLanguageOption in searchOptions.program_languages">
                     <input
                         type="radio" 
                         id="programLanguage"
-                        :value="programLanguageOption.language" 
+                        :value="programLanguageOption" 
                         v-model="programLanguage"
                         @keyup.enter.prevent="search">
-                         {{ programLanguageOption.language | capitalize }}
+                         {{ programLanguageOption | capitalize }}
                 </label>
             </div>
         </div>
@@ -126,10 +122,7 @@ export default {
     data: function () {
         return {
             // Data for options showing.
-            scholarshipTypeLists: [],
-            universityLists: [],
-            degreeTypeLists: [],
-            programLanguageLists: [],
+            searchOptions: [],
 
             // Data as value that we will send as a search query
             scholarshipType: '',
@@ -161,24 +154,13 @@ export default {
     },
     beforeCreate: function () {
         // Get all data for search options
-        axios.all([
-                axios.get('/api/model/statics/scholarship-type'),
-                axios.get('/api/model/university'),
-                axios.get('/api/model/statics/degree-type'),
-                axios.get('/api/model/statics/program-language')
-            ])
-            .then(axios.spread((scholarshipTypeRes, 
-                            universityRes,
-                            degreeTypeRes,
-                            programLanguageRes) => {
-                this.scholarshipTypeLists = scholarshipTypeRes.data;
-                this.universityLists = universityRes.data;
-                this.degreeTypeLists = degreeTypeRes.data;
-                this.programLanguageLists = programLanguageRes.data;
-            }))
+        axios.get('/api/search/advanced/scholarship/search-options')
+            .then((res) => {
+                this.searchOptions = res.data;
+            })
             .catch((err) => {
                 console.log(err.response);
-            })
+            });
     },
     filters: {
         capitalize: function (value) {

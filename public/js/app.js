@@ -44088,7 +44088,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44251,10 +44251,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -44263,10 +44259,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     data: function data() {
         return {
             // Data for options showing.
-            scholarshipTypeLists: [],
-            universityLists: [],
-            degreeTypeLists: [],
-            programLanguageLists: [],
+            searchOptions: [],
 
             // Data as value that we will send as a search query
             scholarshipType: '',
@@ -44297,12 +44290,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         var _this2 = this;
 
         // Get all data for search options
-        axios.all([axios.get('/api/model/statics/scholarship-type'), axios.get('/api/model/university'), axios.get('/api/model/statics/degree-type'), axios.get('/api/model/statics/program-language')]).then(axios.spread(function (scholarshipTypeRes, universityRes, degreeTypeRes, programLanguageRes) {
-            _this2.scholarshipTypeLists = scholarshipTypeRes.data;
-            _this2.universityLists = universityRes.data;
-            _this2.degreeTypeLists = degreeTypeRes.data;
-            _this2.programLanguageLists = programLanguageRes.data;
-        })).catch(function (err) {
+        axios.get('/api/search/advanced/scholarship/search-options').then(function (res) {
+            _this2.searchOptions = res.data;
+        }).catch(function (err) {
             console.log(err.response);
         });
     },
@@ -44376,51 +44366,46 @@ var render = function() {
             _vm._v(" All\n            ")
           ]),
           _vm._v(" "),
-          _vm._l(_vm.scholarshipTypeLists, function(scholarshipTypeOption) {
-            return _c(
-              "label",
-              { key: scholarshipTypeOption.id, staticClass: "radio-inline" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.scholarshipType,
-                      expression: "scholarshipType"
-                    }
-                  ],
-                  attrs: { type: "radio", id: "scholarshipType" },
-                  domProps: {
-                    value: scholarshipTypeOption.type,
-                    checked: _vm._q(
-                      _vm.scholarshipType,
-                      scholarshipTypeOption.type
-                    )
-                  },
-                  on: {
-                    keyup: function($event) {
-                      if (
-                        !("button" in $event) &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key)
-                      ) {
-                        return null
-                      }
-                      $event.preventDefault()
-                      _vm.search($event)
-                    },
-                    change: function($event) {
-                      _vm.scholarshipType = scholarshipTypeOption.type
-                    }
+          _vm._l(_vm.searchOptions.scholarship_types, function(
+            scholarshipTypeOption
+          ) {
+            return _c("label", { staticClass: "radio-inline" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.scholarshipType,
+                    expression: "scholarshipType"
                   }
-                }),
-                _vm._v(
-                  "\n                     " +
-                    _vm._s(_vm._f("capitalize")(scholarshipTypeOption.type)) +
-                    " Scholarship\n            "
-                )
-              ]
-            )
+                ],
+                attrs: { type: "radio", id: "scholarshipType" },
+                domProps: {
+                  value: scholarshipTypeOption,
+                  checked: _vm._q(_vm.scholarshipType, scholarshipTypeOption)
+                },
+                on: {
+                  keyup: function($event) {
+                    if (
+                      !("button" in $event) &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key)
+                    ) {
+                      return null
+                    }
+                    $event.preventDefault()
+                    _vm.search($event)
+                  },
+                  change: function($event) {
+                    _vm.scholarshipType = scholarshipTypeOption
+                  }
+                }
+              }),
+              _vm._v(
+                "\n                     " +
+                  _vm._s(_vm._f("capitalize")(scholarshipTypeOption)) +
+                  " Scholarship\n            "
+              )
+            ])
           })
         ],
         2
@@ -44470,17 +44455,16 @@ var render = function() {
           [
             _c("option", { attrs: { value: "" } }, [_vm._v("All")]),
             _vm._v(" "),
-            _vm._l(_vm.universityLists, function(universityNameOption) {
+            _vm._l(_vm.searchOptions.university_names, function(
+              universityNameOption
+            ) {
               return _c(
                 "option",
-                {
-                  key: universityNameOption.id,
-                  domProps: { value: universityNameOption.name }
-                },
+                { domProps: { value: universityNameOption } },
                 [
                   _vm._v(
                     "\n                    " +
-                      _vm._s(universityNameOption.name) +
+                      _vm._s(universityNameOption) +
                       "    \n                "
                   )
                 ]
@@ -44539,48 +44523,44 @@ var render = function() {
             _vm._v(" All\n            ")
           ]),
           _vm._v(" "),
-          _vm._l(_vm.degreeTypeLists, function(degreeTypeOption) {
-            return _c(
-              "label",
-              { key: degreeTypeOption.id, staticClass: "radio-inline" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.degreeType,
-                      expression: "degreeType"
-                    }
-                  ],
-                  attrs: { type: "radio", id: "degreeType" },
-                  domProps: {
-                    value: degreeTypeOption.type,
-                    checked: _vm._q(_vm.degreeType, degreeTypeOption.type)
-                  },
-                  on: {
-                    keyup: function($event) {
-                      if (
-                        !("button" in $event) &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key)
-                      ) {
-                        return null
-                      }
-                      $event.preventDefault()
-                      _vm.search($event)
-                    },
-                    change: function($event) {
-                      _vm.degreeType = degreeTypeOption.type
-                    }
+          _vm._l(_vm.searchOptions.degree_types, function(degreeTypeOption) {
+            return _c("label", { staticClass: "radio-inline" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.degreeType,
+                    expression: "degreeType"
                   }
-                }),
-                _vm._v(
-                  "\n                     " +
-                    _vm._s(_vm._f("capitalize")(degreeTypeOption.type)) +
-                    "\n            "
-                )
-              ]
-            )
+                ],
+                attrs: { type: "radio", id: "degreeType" },
+                domProps: {
+                  value: degreeTypeOption,
+                  checked: _vm._q(_vm.degreeType, degreeTypeOption)
+                },
+                on: {
+                  keyup: function($event) {
+                    if (
+                      !("button" in $event) &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key)
+                    ) {
+                      return null
+                    }
+                    $event.preventDefault()
+                    _vm.search($event)
+                  },
+                  change: function($event) {
+                    _vm.degreeType = degreeTypeOption
+                  }
+                }
+              }),
+              _vm._v(
+                "\n                     " +
+                  _vm._s(_vm._f("capitalize")(degreeTypeOption)) +
+                  "\n            "
+              )
+            ])
           })
         ],
         2
@@ -44637,53 +44617,46 @@ var render = function() {
             _vm._v(" All\n            ")
           ]),
           _vm._v(" "),
-          _vm._l(_vm.programLanguageLists, function(programLanguageOption) {
-            return _c(
-              "label",
-              { key: programLanguageOption.id, staticClass: "radio-inline" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.programLanguage,
-                      expression: "programLanguage"
-                    }
-                  ],
-                  attrs: { type: "radio", id: "programLanguage" },
-                  domProps: {
-                    value: programLanguageOption.language,
-                    checked: _vm._q(
-                      _vm.programLanguage,
-                      programLanguageOption.language
-                    )
-                  },
-                  on: {
-                    keyup: function($event) {
-                      if (
-                        !("button" in $event) &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key)
-                      ) {
-                        return null
-                      }
-                      $event.preventDefault()
-                      _vm.search($event)
-                    },
-                    change: function($event) {
-                      _vm.programLanguage = programLanguageOption.language
-                    }
+          _vm._l(_vm.searchOptions.program_languages, function(
+            programLanguageOption
+          ) {
+            return _c("label", { staticClass: "radio-inline" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.programLanguage,
+                    expression: "programLanguage"
                   }
-                }),
-                _vm._v(
-                  "\n                     " +
-                    _vm._s(
-                      _vm._f("capitalize")(programLanguageOption.language)
-                    ) +
-                    "\n            "
-                )
-              ]
-            )
+                ],
+                attrs: { type: "radio", id: "programLanguage" },
+                domProps: {
+                  value: programLanguageOption,
+                  checked: _vm._q(_vm.programLanguage, programLanguageOption)
+                },
+                on: {
+                  keyup: function($event) {
+                    if (
+                      !("button" in $event) &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key)
+                    ) {
+                      return null
+                    }
+                    $event.preventDefault()
+                    _vm.search($event)
+                  },
+                  change: function($event) {
+                    _vm.programLanguage = programLanguageOption
+                  }
+                }
+              }),
+              _vm._v(
+                "\n                     " +
+                  _vm._s(_vm._f("capitalize")(programLanguageOption)) +
+                  "\n            "
+              )
+            ])
           })
         ],
         2
