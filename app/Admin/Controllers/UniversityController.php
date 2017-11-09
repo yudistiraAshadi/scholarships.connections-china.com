@@ -99,6 +99,23 @@ class UniversityController extends Controller
 
             $form->display('id', 'ID');
 
+            $form->text('name', 'University Name');
+            $form->image('logo', 'University Logo')->fit(70, 70, function ($constraint) {
+                $constraint->upsize();
+            })->uniqueName();
+            $form->textarea('introduction', 'University Introduction (optional)');
+
+            $form->text('country', 'Country')->default('China');
+            $form->text('governing_district', 'Governing District')->placeholder('Province or State');
+            $form->text('major_municipality', 'Major Municipality')->placeholder('City or Town');
+            $form->text('minor_municipality', 'Minor Municipality')->placeholder('District');
+            $form->text('detailed_address', 'Detailed Address')->placeholder('Street Name and Number');
+
+            $form->image('photos', 'Photos')->resize(null, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->uniqueName();
+
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
