@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Models\University::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->company,
-        'logo' => $faker->imageUrl,
+        'logo' => $faker->imageUrl($width = 140, $height = 140),
         'introduction' => $faker->optional()->text,
 
         // Address

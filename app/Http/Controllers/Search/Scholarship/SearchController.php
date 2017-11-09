@@ -13,20 +13,20 @@ use App\Models\University;
 
 class SearchController extends Controller
 {
+    /**
+     * Return advenced search options needed to build form
+     * for doing advanced scholarship searching
+     */
     public function advancedSearchOptions()
     {
-        /**
-         * Get all the models related to the search options
-         */
+        // Get all the models related to the search options
         $scholarshipTypesCollection = ScholarshipType::all();
         $universitiesCollection = University::all();
         $degreeTypesCollection = DegreeType::all();
         $programLanguagesCollection = ProgramLanguage::all();
 
 
-        /**
-         * Break down the models into array of strings
-         */
+        // Break down the models into array of strings
         $scholarshipTypes = [];
         foreach ($scholarshipTypesCollection as $scholarshipType) {
             $scholarshipTypes[] = $scholarshipType->type;
@@ -48,9 +48,7 @@ class SearchController extends Controller
         };
         
 
-        /**
-         * Return an array of search options
-         */
+        // Return an array of search options
         return [
             'scholarship_types' => $scholarshipTypes,
             'university_names' => $universityNames,
@@ -59,11 +57,13 @@ class SearchController extends Controller
         ];
     }
 
+
+    /**
+     * Performed an advenced search for scholarship
+     */
     public function advancedSearch(Request $request)
     {
-        /**
-         * Assign request inputs to variables
-         */
+        // Assign request inputs to variables
         $scholarshipTypeRequest = $request->input('scholarship_type');
         $universityNameRequest = $request->input('university_name');
         $degreeTypeRequest = $request->input('degree_type');
@@ -71,9 +71,7 @@ class SearchController extends Controller
         $programRequest = $request->input('program');
 
 
-        /**
-         * Search indices based on the input and combine all the results
-         */
+        // Search indices based on the input and combine all the results
         $result = Scholarship::all();
 
         if (isset($scholarshipTypeRequest) && !empty($scholarshipTypeRequest)) {

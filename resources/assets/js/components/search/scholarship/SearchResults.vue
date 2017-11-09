@@ -12,9 +12,10 @@
        </thead>
        <tbody>
             <scholarship-search-result-item
-                v-for="(scholarship, index) in filteredTableBody"
-                v-bind:key="index"
-                :scholarship="scholarship" />
+                v-for="scholarship in filteredTableBody"
+                v-bind:key="scholarship.id"
+                :scholarship="scholarship"
+                @click.native="redirectToScholarshipDetail(scholarship.id)"/>
        </tbody>
     </table>
 </template>
@@ -87,6 +88,9 @@ export default {
             this.activeSortKeyName = tableHead.name;
             this.sortKey = tableHead.key;
             this.sortOrders[tableHead.key] = this.sortOrders[tableHead.key] * -1;
+        },
+        redirectToScholarshipDetail: function (scholarshipId) {
+            window.open('/scholarship/' + scholarshipId, '_blank');
         }
     }
 }

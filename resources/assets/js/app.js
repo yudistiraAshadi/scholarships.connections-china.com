@@ -24,7 +24,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('scholarship-search-form', require('./components/search/scholarship/SearchForm.vue'));
 Vue.component('scholarship-search-results', require('./components/search/scholarship/SearchResults.vue'));
 Vue.component('scholarship-search-result-item', require('./components/search/scholarship/SearchResultItem.vue'));
-Vue.component('scholarship-search', require('./components/search/scholarship/ScholarshipSearch.vue'));
 
 import store from './store';
 
