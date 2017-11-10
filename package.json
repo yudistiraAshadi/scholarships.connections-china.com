@@ -11,16 +11,16 @@
     },
     "devDependencies": {
         "axios": "^0.16.2",
-        "bootstrap-sass": "^3.3.7",
+        "bootstrap": "4.0.0-beta.2",
         "cross-env": "^5.0.1",
         "eslint": "^4.10.0",
         "eslint-plugin-vue": "^3.13.1",
         "jquery": "^3.1.1",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
-        "vue": "^2.1.10"
-    },
-    "dependencies": {
+        "popper.js": "^1.12.6",
+        "vue": "^2.1.10",
         "vuex": "^3.0.1"
-    }
+    },
+    "dependencies": {}
 }

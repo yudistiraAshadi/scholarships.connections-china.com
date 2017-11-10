@@ -15,63 +15,79 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+            <div class="container-fluid">
+                <!-- Company Logo + Name -->
+                <a href="{{ url('/') }}" class="navbar-brand">{{ config('app.name', 'Laravel') }}</a>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                <!-- Hamburger Menu -->
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="flex-column collapse navbar-collapse" id="navbarCollapse">
+                    <div class="w-100 navbar-nav d-none d-lg-block">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">Home</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">Universities</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">Scholarships</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">FAQs</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">About Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="w-100 navbar-nav d-none d-lg-block">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <a class="nav-item nav-link active text-center" href="#">Home <span class="sr-only">(current)</span></a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">Universities</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">Scholarships</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">FAQs</a>
+                                </div>
+                                <div class="col">
+                                    <a class="nav-item nav-link text-center" href="#">About Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="navbar-nav d-sm-block d-lg-none">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Universities</a>
+                        <a class="nav-item nav-link" href="#">Scholarships</a>
+                        <a class="nav-item nav-link" href="#">FAQs</a>
+                        <a class="nav-item nav-link" href="#">About Us</a>
+                    </div>
+                    
                 </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                
             </div>
         </nav>
 
+        <!-- Body -->
         @yield('content')
+
     </div>
 
     <!-- Scripts -->

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
@@ -12,11 +12,11 @@
                     <scholarship-search-form></scholarship-search-form>
                 </div>
                 
-                <!-- Search results table -->
+                Search results table
                 <scholarship-search-results></scholarship-search-results>
             </div>
             
         </div>
     </div>
-</div>
+</div> -->
 @endsection
