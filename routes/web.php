@@ -12,11 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('scholarship.homepage');
+    return view('homepage');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/scholarship/{id}', 'ScholarshipController@show');

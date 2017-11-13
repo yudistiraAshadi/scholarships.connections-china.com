@@ -1,0 +1,71 @@
+
+$footer-orange: #ec8223;
+$footer-bg-color: #282828;
+$footer-font-color: #fff;
+
+// Main footer
+footer
+{
+    background-color: $footer-bg-color;
+    color: $footer-font-color;
+
+    .ce-footer-title
+    {
+        margin-bottom: 1.7rem;
+    }
+
+    .ce-footer-column  
+    {
+        &.ce-footer-usefull-links
+        {
+            ul
+            {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+    
+                li
+                {
+                    margin-bottom: 1rem;
+
+                    i
+                    {
+                        color: $footer-orange;
+                        margin-right: 0.5rem;
+                    }
+    
+                    a
+                    {
+                        color: $footer-font-color;            
+                    }
+                }
+            }
+        }
+
+        &.ce-footer-contact-information
+        {
+            dl
+            {
+                dt
+                {
+                    color: #7f7f81;
+
+                    i
+                    {
+                        margin-right: 0.5rem;
+                    }
+                }
+
+                dd
+                {
+                    ul
+                    {
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@ class ScholarshipController extends Controller
     {
         $scholarship = Scholarship::find($id);
 
-        return view('scholarship.scholarship-detail', [
+        return view('scholarship.show-detail', [
             'scholarship' => $scholarship
         ]);
     }

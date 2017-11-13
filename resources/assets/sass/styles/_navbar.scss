@@ -1,0 +1,66 @@
+
+// Main Navigation Bar
+.navbar
+{
+    .navbar-brand
+    {
+        img.ce-csscholarship-logo
+        {
+            height: 7rem;
+            width: 8.2rem;
+
+        }
+    }
+
+    .navbar-collapse
+    {
+        .btn {
+            border-radius: 0;
+        }
+        
+        .ce-nav-top-row
+        {
+            img.ce-social-icon
+            {
+                max-height: 3rem; 
+            }
+
+            .ce-applicant-counter
+            {
+                color: #009ece;
+                font-size: 1.3rem;
+                font-weight: bold;
+
+                .ce-counter 
+                {
+                    margin-bottom: -0.7rem;
+                }
+            }
+        }
+
+        .navbar-nav
+        {
+            a
+            {
+                &.btn.ce-btn-navbar
+                {
+                    
+                    background-color: grey;
+                    color: #fff;
+                    font-size: 1.3em;
+                    font-weight: bold;
+
+                    &:hover
+                    {
+                        background-color: #325923;
+                    }
+                    
+                    &.active
+                    {
+                        background-color: #325923;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import "node_modules/font-awesome/scss/font-awesome";
 
 // Variables
 @import "variables";
@@ -9,6 +10,7 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // Custom SASS
-@import "overrides";
-@import "helpers";
-@import "styles";
+@import "styles/footer";
+@import "styles/navbar";
+
+// @import "styles/pages/homepage";
