@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,7 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    @yield('styles')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -21,7 +23,7 @@
             <div class="container-fluid">
                 <!-- Company Logo + Name -->
                 <a href="{{ url('/') }}" class="navbar-brand p-0 m-0">
-                    <img class="ce-csscholarship-logo" src="{{ asset('images/cs_scholarship_logo.png') }}" alt="Connections Scholarship Logo">
+                    <img class="ce-csscholarship-logo" src="{{ asset('images/cs_scholarship_logo.jpg') }}" alt="Connections Scholarship Logo">
                 </a>
 
 
@@ -53,11 +55,11 @@
                                 </div>
                                 <div class="col-lg-4 p-0 mx-1 mb-1">
                                     <div class="text-center">
-                                        <img class="ce-social-icon" src="{{ asset('images/wechat.png') }}" alt="WeChat">
-                                        <img class="ce-social-icon" src="{{ asset('images/twitter.png') }}" alt="Twitter">
-                                        <img class="ce-social-icon" src="{{ asset('images/facebook.png') }}" alt="Facebook">
-                                        <img class="ce-social-icon" src="{{ asset('images/linkedin.png') }}" alt="linkedIn">
-                                        <img class="ce-social-icon" src="{{ asset('images/whatsapp.png') }}" alt="WhatsApp">
+                                        <img class="ce-social-icon" src="{{ asset('images/wechat.jpg') }}" alt="WeChat">
+                                        <img class="ce-social-icon" src="{{ asset('images/twitter.jpg') }}" alt="Twitter">
+                                        <img class="ce-social-icon" src="{{ asset('images/facebook.jpg') }}" alt="Facebook">
+                                        <img class="ce-social-icon" src="{{ asset('images/linkedin.jpg') }}" alt="linkedIn">
+                                        <img class="ce-social-icon" src="{{ asset('images/whatsapp.jpg') }}" alt="WhatsApp">
                                     </div>
                                 </div>
                                 <div class="col-lg p-0 mx-1 my-auto ce-applicant-counter">
@@ -102,7 +104,7 @@
         <!-- Footer -->
         <footer>
             <div class="container-fluid">
-                <div class="row p-3 py-5">
+                <div class="row px-3 pt-5">
                     <!-- Footer Usefull Links -->
                     <div class="ce-footer-column ce-footer-usefull-links col-lg-3 col-md-6 col-xs-12">
                         <h3 class="ce-footer-title">Usefull Links</h3>
@@ -189,5 +191,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
+
 </body>
 </html>

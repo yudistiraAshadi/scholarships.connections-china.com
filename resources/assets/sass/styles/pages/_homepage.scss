@@ -1,0 +1,58 @@
+/**
+  * Main Carousel Row
+  */
+.ce-main-carousel-row
+{
+    .carousel
+    {
+        overflow: hidden;
+
+        .carousel-item
+        {
+            max-height: 37rem;
+        }
+    }
+}
+
+/**
+  * University Carousel Row
+  */
+.ce-university-row
+{
+    .swiper-slide
+    {
+        height: 15rem;
+        overflow: hidden;
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+        .ce-university-name-box
+        {
+            position: absolute;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            color: #fff;
+            width: 100%;
+            height: 30%;
+            bottom: 0;
+        }
+    }
+}
+
+/**
+  * Applying Steps Row
+  */
+.ce-applying-steps-row
+{
+    background-color: grey;
+}

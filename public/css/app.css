@@ -12781,6 +12781,10 @@ footer .ce-footer-title {
   margin-bottom: 1.7rem;
 }
 
+footer .ce-footer-column {
+  margin-bottom: 3rem;
+}
+
 footer .ce-footer-column.ce-footer-usefull-links ul {
   list-style-type: none;
   margin: 0;
@@ -12815,8 +12819,8 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
 }
 
 .navbar .navbar-brand img.ce-csscholarship-logo {
-  height: 7rem;
-  width: 8.2rem;
+  height: 6rem;
+  width: 7.3rem;
 }
 
 .navbar .navbar-collapse .btn {
@@ -12850,5 +12854,52 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
 
 .navbar .navbar-collapse .navbar-nav a.btn.ce-btn-navbar.active {
   background-color: #325923;
+}
+
+/**
+  * Main Carousel Row
+  */
+
+.ce-main-carousel-row .carousel {
+  overflow: hidden;
+}
+
+.ce-main-carousel-row .carousel .carousel-item {
+  max-height: 37rem;
+}
+
+/**
+  * University Carousel Row
+  */
+
+.ce-university-row .swiper-slide {
+  height: 15rem;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.ce-university-row .swiper-slide .ce-university-name-box {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+}
+
+/**
+  * Applying Steps Row
+  */
+
+.ce-applying-steps-row {
+  background-color: grey;
 }
 
