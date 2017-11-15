@@ -1,94 +1,85 @@
 <template>
-    <table class="table table-hover">
-       <thead>
-            <tr>
-                <th></th>
-                <th v-for="tableHead in tableHeads"
-                    @click="sortBy(tableHead)"
-                    :class="{ active: activeSortKeyName == tableHead.name }">
-                    {{ tableHead.name }}
-                </th>
-            </tr>
-       </thead>
-       <tbody>
-            <scholarship-search-result-item
-                v-for="scholarship in filteredTableBody"
-                v-bind:key="scholarship.id"
-                :scholarship="scholarship"
-                @click.native="redirectToScholarshipDetail(scholarship.id)"/>
-       </tbody>
-    </table>
+    <b-table
+        :hover="hover"
+        :current-page="1"
+        :per-page="5"
+        :items="scholarshipSearchResults"
+        :fields="fields">
+
+        <template slot="university" slot-scope="row">
+            <img :src="row.value.logo" style="width: 5rem; height: 5rem;">
+            &nbsp;&nbsp;&nbsp;{{ row.value.name }}
+        </template>
+
+    </b-table>
 </template>
 
 <script>
 
 import { mapState } from 'vuex';
+import bTable from 'bootstrap-vue/es/components/table/table';
 
 export default {
+    components: {
+        'b-table': bTable
+    },
+    props: {
+        sortable: {
+            type: Boolean,
+            default: true
+        },
+        hover: {
+            type: Boolean,
+            default: true
+        }
+    },
     data: function () {
-        let tableHeads = [
-            { key: { name: 'university', attr: 'name' }, name: 'University' },
-            { key : 'program', name: 'Program' },
-            { key: { name: 'program_language', attr: 'language' }, name: 'Language' },
-            { key: { name: 'scholarship_type', attr: 'type' }, name: 'Scholarship Category' },
-            { key: { name: 'degree_type', attr: 'type' }, name: 'Degree' }
+        let fields = [
+            {
+                key: 'university',
+                label: 'University',
+                sortable: this.sortable,
+                'class': 'text-center align-middle'
+            },
+            {
+                key: 'program',
+                label: 'Program',
+                sortable: this.sortable,
+                'class': 'text-center align-middle'
+            },
+            {
+                key: 'degree_type',
+                label: 'Degree',
+                sortable: this.sortable,
+                formatter: (value) => { return value.type; },
+                'class': 'text-center align-middle'
+            },
+            {
+                key: 'program_language',
+                label: 'Language',
+                sortable: this.sortable,
+                formatter: (value) => { return value.language; },
+                'class': 'text-center align-middle'
+            },
+            {
+                key: 'scholarship_type',
+                label: 'Scholarship Category',
+                sortable: this.sortable,
+                formatter: (value) => { return value.type; },
+                'class': 'text-center align-middle'
+            },
         ];
-        let sortOrders = {};
-
-        tableHeads.forEach(function (tableHead) {
-            sortOrders[tableHead.key] = 1;
-        });
 
         return {
-            tableHeads: tableHeads,
-            sortKey: '',
-            sortOrders: sortOrders,
-            activeSortKeyName: ''
-        }
+            fields: fields
+        };
     },
     computed: {
         ...mapState([
             'scholarshipSearchResults'
-        ]),
-        filteredTableBody: function () {
-            var sortKey = this.sortKey;
-            var filterKey = this.filterKey && this.filterKey.toLowerCase();
-            var order = this.sortOrders[sortKey] || 1;
-            var scholarshipSearchResults = this.scholarshipSearchResults;
-
-            if (filterKey) {
-                scholarshipSearchResults = scholarshipSearchResults.filter(function (row) {
-                    return Object.keys(row).some(function (key) {
-                        return String(row[key]).toLowerCase().indexOf(filterKey) > -1;
-                    })
-                })
-            }
-
-            if (sortKey) {
-                if (sortKey instanceof Object) {
-                    scholarshipSearchResults = scholarshipSearchResults.slice().sort(function (a, b) {
-                        a = a[sortKey.name][sortKey.attr];
-                        b = b[sortKey.name][sortKey.attr];
-                        return (a === b ? 0 : a > b ? 1 : -1) * order;
-                    })
-                } else {
-                    scholarshipSearchResults = scholarshipSearchResults.slice().sort(function (a, b) {
-                        a = a[sortKey];
-                        b = b[sortKey];
-                        return (a === b ? 0 : a > b ? 1 : -1) * order;
-                    })
-                }
-            }
-
-            return scholarshipSearchResults;
-        }
+        ])
     },
     methods: {
-        sortBy: function (tableHead) {
-            this.activeSortKeyName = tableHead.name;
-            this.sortKey = tableHead.key;
-            this.sortOrders[tableHead.key] = this.sortOrders[tableHead.key] * -1;
-        },
         redirectToScholarshipDetail: function (scholarshipId) {
             window.open('/scholarship/' + scholarshipId, '_blank');
         }

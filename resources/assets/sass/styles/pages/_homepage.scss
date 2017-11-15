@@ -3,21 +3,30 @@
   */
 .ce-main-carousel-row
 {
-    .carousel
+    .swiper-slide
     {
         overflow: hidden;
+        max-height: 37rem;
 
-        .carousel-item
-        {
-            max-height: 37rem;
-        }
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
     }
 }
 
 /**
   * University Carousel Row
   */
-.ce-university-row
+.ce-university-carousel-row
 {
     .swiper-slide
     {
@@ -48,6 +57,80 @@
         }
     }
 }
+
+/**
+  * Scholarship Search Form
+  */
+.ce-scholarship-search-form-row
+{
+    display: none;
+}
+
+/**
+  * Scholarship Search Results
+  */
+.ce-sholarship-search-results-row
+{
+    .btn
+    {
+        min-width: 10rem;
+    }
+}
+
+/**
+  * Comment Carousel Row
+  */
+.ce-comment-carousel-row
+{
+    background-color: blue;
+
+    .ce-swiper-container-bg-color
+    {
+        background-color: rgba($color: #000000, $alpha: 0.5);
+
+        .swiper-container
+        {
+            width: 100%;
+            height: 15rem;
+    
+            .swiper-slide
+            {
+                background-color: grey;
+                overflow: hidden;
+    
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+            }
+
+            .card-body
+            {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
 
 /**
   * Applying Steps Row

@@ -12795,9 +12795,16 @@ footer .ce-footer-column.ce-footer-usefull-links ul li {
   margin-bottom: 1rem;
 }
 
-footer .ce-footer-column.ce-footer-usefull-links ul li i {
+footer .ce-footer-column.ce-footer-usefull-links ul li .fa-stack {
+  margin-left: -0.5rem;
+}
+
+footer .ce-footer-column.ce-footer-usefull-links ul li .fa-stack .fa-check-circle {
   color: #ec8223;
-  margin-right: 0.5rem;
+}
+
+footer .ce-footer-column.ce-footer-usefull-links ul li .fa-stack .fa-circle {
+  color: #fff;
 }
 
 footer .ce-footer-column.ce-footer-usefull-links ul li a {
@@ -12860,19 +12867,25 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   * Main Carousel Row
   */
 
-.ce-main-carousel-row .carousel {
+.ce-main-carousel-row .swiper-slide {
   overflow: hidden;
-}
-
-.ce-main-carousel-row .carousel .carousel-item {
   max-height: 37rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /**
   * University Carousel Row
   */
 
-.ce-university-row .swiper-slide {
+.ce-university-carousel-row .swiper-slide {
   height: 15rem;
   overflow: hidden;
   display: -webkit-box;
@@ -12886,13 +12899,72 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   align-items: center;
 }
 
-.ce-university-row .swiper-slide .ce-university-name-box {
+.ce-university-carousel-row .swiper-slide .ce-university-name-box {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   width: 100%;
   height: 30%;
   bottom: 0;
+}
+
+/**
+  * Scholarship Search Form
+  */
+
+.ce-scholarship-search-form-row {
+  display: none;
+}
+
+/**
+  * Scholarship Search Results
+  */
+
+.ce-sholarship-search-results-row .btn {
+  min-width: 10rem;
+}
+
+/**
+  * Comment Carousel Row
+  */
+
+.ce-comment-carousel-row {
+  background-color: blue;
+}
+
+.ce-comment-carousel-row .ce-swiper-container-bg-color {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container {
+  width: 100%;
+  height: 15rem;
+}
+
+.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .swiper-slide {
+  background-color: grey;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /**

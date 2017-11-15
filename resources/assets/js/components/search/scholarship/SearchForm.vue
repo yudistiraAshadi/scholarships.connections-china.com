@@ -1,115 +1,157 @@
 <template>
 
-    <form class="form-horizontal">
+    <form :class="classNames['search-form']">
+        <!-- Scholarship Type Radio-->
+        <div :class="classNames['search-form__scholarship-type']">
+            <label
+                for="scholarshipType"
+                :class="classNames['search-form__scholarship-type__label']">
+                Category
+            </label>
 
-        <div class="form-group">
-            <label for="scholarshipType" class="col-sm-2 control-label">Category</label>
-            <div class="col-sm-10">
-                <label class="radio-inline">
+            <div :class="classNames['search-form__scholarship-type__input-wrapper']">
+                <label class="custom-control custom-radio">
                     <input
+                        class="custom-control-input"
                         type="radio"
                         id="scholarshipType"
                         value=""
                         v-model="scholarshipType"
                         checked="checked"
-                        @keyup.enter.prevent="search"> All
+                        @keyup.enter.prevent="search">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">&nbsp;All</span>
                 </label>
+
                 <label
-                    class="radio-inline"
+                    class="custom-control custom-radio"
                     v-for="scholarshipTypeOption in searchOptions.scholarship_types">
                     <input
+                        class="custom-control-input"
                         type="radio"
                         id="scholarshipType"
                         :value="scholarshipTypeOption"
                         v-model="scholarshipType"
                         @keyup.enter.prevent="search">
-                         {{ scholarshipTypeOption | capitalize }} Scholarship
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">
+                            &nbsp;{{ scholarshipTypeOption | capitalize }} Scholarship
+                        </span>
                 </label>
             </div>
-        </div>
+        </div><!-- End of Scholarship Type Radio-->
 
-        <div class="form-group">
-            <label for="universityName" class="col-sm-2 control-label">University</label>
-            <div class="col-sm-10">
-                <select id="universityName" class="form-control" v-model="universityName">
-                    <option value="">All</option>
-                    <option 
-                        v-for="universityNameOption in searchOptions.university_names"
-                        :value="universityNameOption">
-                        {{ universityNameOption }}    
-                    </option>
-                </select>
+
+        <!-- University Name Select -->
+        <div :class="classNames['search-form__university-name']">
+            <label for="universityName" :class="classNames['search-form__university-name__label']">University</label>
+            <div :class="classNames['search-form__university-name__input-wrapper']">
+                <select id="universityName" class="custom-select" v-model="universityName">
+                <option value="" selected>All</option>
+                <option 
+                    v-for="universityNameOption in searchOptions.university_names"
+                    :value="universityNameOption">
+                    {{ universityNameOption }}    
+                </option>
+            </select>
             </div>
-        </div>
+        </div><!-- End of University Name Select -->
 
-        <div class="form-group">
-            <label for="degreeType" class="col-sm-2 control-label">Degree</label>
-            <div class="col-sm-10">
-                <label class="radio-inline">
+
+        <!-- Degree Type Radio -->
+        <div :class="classNames['search-form__degree-type']">
+            <label for="degreeType" :class="classNames['search-form__degree-type__label']">Degree</label>
+
+            <div :class="classNames['search-form__degree-type__input-wrapper']">
+                <label class="custom-control custom-radio">
                     <input
+                        class="custom-control-input"
                         type="radio"
                         id="degreeType"
                         value=""
                         v-model="degreeType"
                         checked="checked"
-                        @keyup.enter.prevent="search"> All
+                        @keyup.enter.prevent="search">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">&nbsp;All</span>
                 </label>
+
                 <label
-                    class="radio-inline"
+                    class="custom-control custom-radio"
                     v-for="degreeTypeOption in searchOptions.degree_types">
                     <input 
+                        class="custom-control-input"
                         type="radio" 
                         id="degreeType"
                         :value="degreeTypeOption" 
                         v-model="degreeType"
                         @keyup.enter.prevent="search">
-                         {{ degreeTypeOption | capitalize }}
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">
+                            &nbsp;{{ degreeTypeOption | capitalize }}
+                        </span>
                 </label>
             </div>
-        </div>
+        </div><!-- End of Degree Type Radio -->
 
-        <div class="form-group">
-            <label for="programLanguage" class="col-sm-2 control-label">Language</label>
-            <div class="col-sm-10">
-                <label class="radio-inline">
+
+        <!-- Program Language Radio -->
+        <div :class="classNames['search-form__program-language']">
+            <label
+                for="programLanguage"
+                :class="classNames['search-form__program-language__label']">
+                Language
+            </label>
+            <div :class="classNames['search-form__program-language__input-wrapper']">
+                <label class="custom-control custom-radio">
                     <input
+                        class="custom-control-input"
                         type="radio"
                         id="programLanguage"
                         value=""
                         v-model="programLanguage"
                         checked="checked"
-                        @keyup.enter.prevent="search"> All
+                        @keyup.enter.prevent="search">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">&nbsp;All</span>
                 </label>
                 <label
-                    class="radio-inline"
+                    class="custom-control custom-radio"
                     v-for="programLanguageOption in searchOptions.program_languages">
                     <input
+                        class="custom-control-input"
                         type="radio" 
                         id="programLanguage"
                         :value="programLanguageOption" 
                         v-model="programLanguage"
                         @keyup.enter.prevent="search">
-                         {{ programLanguageOption | capitalize }}
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">
+                            &nbsp;{{ programLanguageOption | capitalize }}
+                        </span>
                 </label>
             </div>
-        </div>
+        </div><!-- End of Program Language Radio -->
 
-        <div class="form-group">
-            <label for="program" class="col-sm-2 control-label">Program</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="program"
+
+        <!-- Program Input -->
+        <div :class="classNames['search-form__program']">
+            <label for="program" :class="classNames['search-form__program__label']">Program</label>
+            <div :class="classNames['search-form__program__input-wrapper']">
+                <input type="text" id="program" class="form-control"
                     v-model="program" @keyup.enter.prevent="search">
             </div>
-        </div>
+        </div><!-- End of Program Input -->
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" @click.prevent="search">
+
+        <!-- Submit Button -->
+        <div :class="classNames['search-form__submit-btn']">
+            <div :class="classNames['search-form__submit-btn__btn-wrapper']">
+                <button :class="classNames['search-form__submit-btn__btn']" @click.prevent="search">
                     Search
                 </button>
             </div>
-        </div>
-        
+        </div><!-- End of Submit Button -->
     </form>
 
 </template>
@@ -119,6 +161,46 @@
 import { mapActions } from 'vuex';
 
 export default {
+    props: {
+        classNames: {
+            type: Object,
+            default: function () {
+                return {
+                    'search-form': '',
+
+                    // Scholarship Type
+                    'search-form__scholarship-type': '',
+                    'search-form__scholarship-type__label': '',
+                    'search-form__scholarship-type__input-wrapper': '',
+
+                    // University Name
+                    'search-form__university-name': '',
+                    'search-form__university-name__label': '',
+                    'search-form__university-name__input-wrapper': '',
+
+                    // Degree Type
+                    'search-form__degree-type': '',
+                    'search-form__degree-type__label': '',
+                    'search-form__degree-type__input-wrapper': '',
+
+                    // Program Language
+                    'search-form__program-language': '',
+                    'search-form__program-language__label': '',
+                    'search-form__program-language__input-wrapper': '',
+
+                    // Program
+                    'search-form__program': '',
+                    'search-form__program__label': '',
+                    'search-form__program__input-wrapper': '',
+
+                    // Submit Button
+                    'search-form__submit-btn': '',
+                    'search-form__submit-btn__btn-wrapper': '',
+                    'search-form__submit-btn__btn': '',
+                };
+            }
+        }
+    },
     data: function () {
         return {
             // Data for options showing.
@@ -151,6 +233,9 @@ export default {
                     console.log(err.response);
                 });
         }
+    },
+    mounted: function () {
+        this.search();
     },
     beforeCreate: function () {
         // Get all data for search options

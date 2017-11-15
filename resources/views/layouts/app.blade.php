@@ -110,39 +110,66 @@
                         <h3 class="ce-footer-title">Usefull Links</h3>
                         <ul>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Frequently Asked Questions</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Application Procedure</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">MBBS in China</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Air Ticket Service</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Admission Requirements</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Expenses in China</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Part-time Jobs in China</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Pre-Departure Preparation</a>
                             </li>
                             <li>
-                                <i class="ce-check-circle fa fa-check-circle" aria-hidden="true"></i>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-check-circle fa-stack-1x" aria-hidden="true"></i>
+                                </span>
                                 <a href="#">Apply for Student Visa</a>
                             </li>
                         </ul>
