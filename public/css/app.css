@@ -12845,6 +12845,8 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
 }
 
 .navbar .navbar-collapse .ce-nav-top-row .ce-applicant-counter .ce-counter {
+  font-size: 2rem;
+  margin-top: -1rem;
   margin-bottom: -0.7rem;
 }
 
@@ -12886,7 +12888,6 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   */
 
 .ce-university-carousel-row .swiper-slide {
-  height: 15rem;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12925,12 +12926,16 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
 }
 
 /**
-  * Comment Carousel Row
+  * Comment Carousel and Applying Steps Wrapper
   */
 
-.ce-comment-carousel-row {
-  background-color: blue;
+.ce-comment-carousel-and-applying-steps-wrapper {
+  background-image: url("/images/wall.jpg");
 }
+
+/**
+  * Comment Carousel Row
+  */
 
 .ce-comment-carousel-row .ce-swiper-container-bg-color {
   background-color: rgba(0, 0, 0, 0.5);
@@ -12938,7 +12943,7 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
 
 .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container {
   width: 100%;
-  height: 15rem;
+  height: 20rem;
 }
 
 .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .swiper-slide {
@@ -12955,23 +12960,24 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   align-items: center;
 }
 
-.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card-body {
+.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+}
+
+.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card .ce-card-image {
+  height: 25%;
+}
+
+.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card .ce-card-image img {
+  height: 100%;
 }
 
 /**
   * Applying Steps Row
   */
-
-.ce-applying-steps-row {
-  background-color: grey;
-}
 

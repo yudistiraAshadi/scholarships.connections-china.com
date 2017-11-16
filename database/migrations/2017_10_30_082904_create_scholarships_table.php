@@ -18,14 +18,14 @@ class CreateScholarshipsTable extends Migration
 
             // Information
             $table->integer('university_id')->unsigned()->index();
-            $table->text('benefits');
-            $table->text('requirements');
+            $table->text('benefits')->nullable();
+            $table->text('requirements')->nullable();
             $table->text('other_information')->nullable();
             $table->text('program');
             $table->integer('program_language_id')->unsigned()->index();
 
             // Scopes
-            $table->integer('number_of_seats');
+            $table->integer('number_of_seats')->nullable();
             $table->date('application_deadline');
 
             // Types
