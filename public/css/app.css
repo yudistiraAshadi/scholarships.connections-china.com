@@ -12865,11 +12865,28 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   background-color: #325923;
 }
 
-/**
-  * Main Carousel Row
-  */
+.ce-homepage {
+  /**
+      * Main Carousel Row
+      */
+  /**
+      * University Carousel Row
+      */
+  /**
+      * Scholarship Search Form
+      */
+  /**
+      * Scholarship Search Results
+      */
+  /**
+      * Comment Carousel and Applying Steps Wrapper
+      */
+  /**
+      * Comment Carousel Row
+      */
+}
 
-.ce-main-carousel-row .swiper-slide {
+.ce-homepage .ce-main-carousel-row .swiper-slide {
   overflow: hidden;
   max-height: 37rem;
   display: -webkit-box;
@@ -12883,11 +12900,14 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   align-items: center;
 }
 
-/**
-  * University Carousel Row
-  */
+.ce-homepage .ce-main-carousel-row .ce-scholarship-search-form {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
 
-.ce-university-carousel-row .swiper-slide {
+.ce-homepage .ce-university-carousel-row .swiper-slide {
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12900,7 +12920,7 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   align-items: center;
 }
 
-.ce-university-carousel-row .swiper-slide .ce-university-name-box {
+.ce-homepage .ce-university-carousel-row .swiper-slide .ce-university-name-box {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -12909,44 +12929,28 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   bottom: 0;
 }
 
-/**
-  * Scholarship Search Form
-  */
-
-.ce-scholarship-search-form-row {
-  display: none;
+.ce-homepage .ce-scholarship-search-form-row {
+  display: none !important;
 }
 
-/**
-  * Scholarship Search Results
-  */
-
-.ce-sholarship-search-results-row .btn {
+.ce-homepage .ce-sholarship-search-results-row .btn {
   min-width: 10rem;
 }
 
-/**
-  * Comment Carousel and Applying Steps Wrapper
-  */
-
-.ce-comment-carousel-and-applying-steps-wrapper {
+.ce-homepage .ce-comment-carousel-and-applying-steps-wrapper {
   background-image: url("/images/wall.jpg");
 }
 
-/**
-  * Comment Carousel Row
-  */
-
-.ce-comment-carousel-row .ce-swiper-container-bg-color {
+.ce-homepage .ce-comment-carousel-row .ce-swiper-container-bg-color {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container {
+.ce-homepage .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container {
   width: 100%;
   height: 20rem;
 }
 
-.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .swiper-slide {
+.ce-homepage .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .swiper-slide {
   background-color: grey;
   overflow: hidden;
   display: -webkit-box;
@@ -12960,7 +12964,7 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   align-items: center;
 }
 
-.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card {
+.ce-homepage .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12969,15 +12973,18 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   justify-content: center;
 }
 
-.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card .ce-card-image {
+.ce-homepage .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card .ce-card-image {
   height: 25%;
 }
 
-.ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card .ce-card-image img {
+.ce-homepage .ce-comment-carousel-row .ce-swiper-container-bg-color .swiper-container .card .ce-card-image img {
   height: 100%;
 }
 
-/**
-  * Applying Steps Row
-  */
+.ce-search-scholarship .ce-scholarship-search-form-row {
+  background-color: #f9f9f9;
+  border: 1px solid #e0dfdf;
+  border-width: thin;
+  border-radius: 5px;
+}
 

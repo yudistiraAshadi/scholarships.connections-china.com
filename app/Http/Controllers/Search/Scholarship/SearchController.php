@@ -14,8 +14,19 @@ use App\Models\University;
 class SearchController extends Controller
 {
     /**
+     * Show the scholarship search page.
+     *
+     */
+    public function index()
+    {
+        return view('search.scholarship');
+    }
+
+
+    /**
      * Return advenced search options needed to build form
      * for doing advanced scholarship searching
+     * 
      */
     public function advancedSearchOptions()
     {
@@ -60,6 +71,7 @@ class SearchController extends Controller
 
     /**
      * Performed an advenced search for scholarship
+     * 
      */
     public function advancedSearch(Request $request)
     {

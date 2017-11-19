@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('navbar')
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light px-0 mb-2">
     <div class="container-fluid">
         <!-- Company Logo + Name -->
         <a href="{{ url('/') }}" class="navbar-brand p-0 m-0">
@@ -23,7 +23,7 @@
                     Home <span class="sr-only">(current)</span>
                 </a>
                 <a class="nav-item nav-link" href="#">Universities</a>
-                <a class="nav-item nav-link" href="#">Scholarships</a>
+                <a class="nav-item nav-link" href="{{ route('search.scholarship') }}">Scholarships</a>
                 <a class="nav-item nav-link" href="#">FAQs</a>
                 <a class="nav-item nav-link" href="#">About Us</a>
             </div>
@@ -63,7 +63,7 @@
                             <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">Universities</a>
                         </div>
                         <div class="col p-0 mx-1">
-                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">Scholarships</a>
+                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="{{ route('search.scholarship') }}">Scholarships</a>
                         </div>
                         <div class="col p-0 mx-1">
                             <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">FAQs</a>

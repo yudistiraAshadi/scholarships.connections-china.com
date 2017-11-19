@@ -21,7 +21,6 @@ window.Vue = require('vue');
 // Scholarship Search Components
 Vue.component('scholarship-search-form', require('./components/search/scholarship/SearchForm.vue'));
 Vue.component('scholarship-search-results', require('./components/search/scholarship/SearchResults.vue'));
-Vue.component('scholarship-search-result-item', require('./components/search/scholarship/SearchResultItem.vue'));
 
 import store from './store';
 

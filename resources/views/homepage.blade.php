@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid px-0">
+<div class="container-fluid ce-homepage px-0">
     <!-- Main Carousel Row -->
     <div class="row ce-main-carousel-row swiper-container px-0 mx-0">
         <div class="swiper-wrapper">
@@ -24,7 +24,7 @@
 
 
     <!-- University Carousel Row -->
-    <div class="row ce-university-carousel-row swiper-container px-0 mx-0 my-2">
+    <div class="row ce-university-carousel-row swiper-container px-0 mx-0 my-3">
         <div class="swiper-wrapper">
             @foreach ($universities as $university)
             <div class="swiper-slide">
@@ -36,26 +36,17 @@
                     class="d-block w-100 img-fluid"
                     src=
                     @php
-                        if (isset($university->photos))
-                        {
+                        if (isset($university->photos)) {
 
-                            if (strpos($university->photos, '|') === true)
-                            {
+                            if (strpos($university->photos, '|') === true) {
                                 $universityPhotos = explode("|", $university->photos);
                                 echo $universityPhotos[array_rand($universityPhotos, 1)];
-                            }
-                            else
-                            {
+                            } else {
                                 echo $university->photos;
                             }
-                        }
-                        elseif (! isset($university->logo))
-                        {
-
+                        } elseif (! isset($university->logo)) {
                             echo $university->logo;
-                        }
-                        else
-                        {
+                        } else {
                             echo '';
                         }
                     @endphp
@@ -71,34 +62,7 @@
 
     <!-- Scholarship Search Form Row -->
     <div class="row ce-scholarship-search-form-row px-0 mx-0">
-        <scholarship-search-form :class-names="{
-            'search-form': 'container-fluid',
-
-            'search-form__scholarship-type': 'form-group row',
-            'search-form__scholarship-type__label': 'col-2',
-            'search-form__scholarship-type__input-wrapper': 'col-10',
-
-            'search-form__university-name': 'form-group row',
-            'search-form__university-name__label': 'col-2',
-            'search-form__university-name__input-wrapper': 'col-10',
-
-            'search-form__degree-type': 'form-group row',
-            'search-form__degree-type__label': 'col-2',
-            'search-form__degree-type__input-wrapper': 'col-10',
-            
-            'search-form__program-language': 'form-group row',
-            'search-form__program-language__label': 'col-2',
-            'search-form__program-language__input-wrapper': 'col-10',
-
-            'search-form__program': 'form-group row',
-            'search-form__program__label': 'col-2',
-            'search-form__program__input-wrapper': 'col-10',
-
-            'search-form__submit-btn': 'form-group row',
-            'search-form__submit-btn__btn-wrapper': 'col-10 offset-2',
-            'search-form__submit-btn__btn': 'btn btn-primary'
-
-        }"></scholarship-search-form>
+        <scholarship-search-form></scholarship-search-form>
     </div><!-- End of Scholarship Search Form Row -->
 
     <!-- Scholarship Search Result -->
@@ -106,9 +70,9 @@
         <div class="ce-search-results-top-border w-100">
             <p><strong>All Programs</strong></p>
         </div>
-        <div class="table-responsive">
-            <scholarship-search-results :sortable=false></scholarship-search-results>
-        </div>
+
+        <scholarship-search-results :sortable=false :perPage=5></scholarship-search-results>
+        
         <div class="w-100 text-center">
             <a href="#" class="btn btn-success"><strong>More</strong></a>
         </div>

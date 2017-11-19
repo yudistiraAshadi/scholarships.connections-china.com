@@ -6,7 +6,7 @@
             <label
                 for="scholarshipType"
                 :class="classNames['search-form__scholarship-type__label']">
-                Category
+                <strong>Category</strong>
             </label>
 
             <div :class="classNames['search-form__scholarship-type__input-wrapper']">
@@ -44,7 +44,7 @@
 
         <!-- University Name Select -->
         <div :class="classNames['search-form__university-name']">
-            <label for="universityName" :class="classNames['search-form__university-name__label']">University</label>
+            <label for="universityName" :class="classNames['search-form__university-name__label']"><strong>University</strong></label>
             <div :class="classNames['search-form__university-name__input-wrapper']">
                 <select id="universityName" class="custom-select" v-model="universityName">
                 <option value="" selected>All</option>
@@ -60,7 +60,7 @@
 
         <!-- Degree Type Radio -->
         <div :class="classNames['search-form__degree-type']">
-            <label for="degreeType" :class="classNames['search-form__degree-type__label']">Degree</label>
+            <label for="degreeType" :class="classNames['search-form__degree-type__label']"><strong>Degree</strong></label>
 
             <div :class="classNames['search-form__degree-type__input-wrapper']">
                 <label class="custom-control custom-radio">
@@ -100,7 +100,7 @@
             <label
                 for="programLanguage"
                 :class="classNames['search-form__program-language__label']">
-                Language
+                <strong>Language</strong>
             </label>
             <div :class="classNames['search-form__program-language__input-wrapper']">
                 <label class="custom-control custom-radio">
@@ -136,7 +136,7 @@
 
         <!-- Program Input -->
         <div :class="classNames['search-form__program']">
-            <label for="program" :class="classNames['search-form__program__label']">Program</label>
+            <label for="program" :class="classNames['search-form__program__label']"><strong>Program</strong></label>
             <div :class="classNames['search-form__program__input-wrapper']">
                 <input type="text" id="program" class="form-control"
                     v-model="program" @keyup.enter.prevent="search">
@@ -148,7 +148,7 @@
         <div :class="classNames['search-form__submit-btn']">
             <div :class="classNames['search-form__submit-btn__btn-wrapper']">
                 <button :class="classNames['search-form__submit-btn__btn']" @click.prevent="search">
-                    Search
+                    <strong>Search</strong>
                 </button>
             </div>
         </div><!-- End of Submit Button -->

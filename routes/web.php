@@ -11,8 +11,26 @@
 |
 */
 
-Route::get('/', 'HomepageController@index');
-
 Auth::routes();
 
+/**
+ * Homepage
+ */
+Route::get('/', 'HomepageController@index');
+
+/**
+ * Scholarship detail page
+ */ 
 Route::get('/scholarship/{id}', 'ScholarshipController@show');
+
+/**
+ * Search pages
+ */
+Route::group([
+    'namespace' => 'Search',
+    'prefix' => 'search'
+], function () {
+
+    // Search Scholarship
+    Route::get('/scholarship', 'Scholarship\SearchController@index')->name('search.scholarship');
+});
