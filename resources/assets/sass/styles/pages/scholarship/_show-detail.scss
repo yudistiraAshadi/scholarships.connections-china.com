@@ -1,0 +1,52 @@
+
+.ce-scholarship-show-detail
+{
+    background-color: $main-bg;
+
+    .card
+    {
+        margin-bottom: 1.25rem;
+    }
+
+    .ce-university-information
+    {
+        .card > .card-body
+        {
+            img.ce-university-logo
+            {
+                width: 6rem;
+            }
+
+            .fa-ul
+            {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+
+    .ce-scholarship-information
+    {
+        .card > .card-body
+        {
+            p.ce-information-title
+            {
+                font-size: 110%;
+                line-height: 1.2;
+                padding-right: 0.5rem;
+            }
+        
+            .ce-information-item
+            {
+                margin-bottom: 0.2rem;
+            }
+    
+            .ce-information-list
+            {
+                ul
+                {
+                    padding-left: 1.1rem;
+                }
+            }
+        }
+    }
+}

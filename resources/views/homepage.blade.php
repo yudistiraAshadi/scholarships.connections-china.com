@@ -189,7 +189,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>
 
 <script type="text/javascript">
-    jQuery(document).ready(function() {
+    jQuery( document ).ready( function () {
         var mainSwiper = new Swiper('.ce-main-carousel-row', {
             autoplay: {
                 delay: 10000,

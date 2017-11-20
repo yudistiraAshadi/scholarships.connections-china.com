@@ -1,11 +1,21 @@
 
 .ce-search-scholarship
 {
+    background-color: $main-bg;
+
     .ce-scholarship-search-form-row
     {
-       background-color: $main-bg;
-       border: 1px solid $main-border-color;
-       border-width: thin;
-       border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid $main-border-color;
+        border-width: thin;
+        border-radius: 5px;
+    }
+
+    .ce-scholarship-search-results-row
+    {
+        background-color: #fff;
+        border: 1px solid $main-border-color;
+        border-width: thin;
+        border-radius: 5px;
     }
 }

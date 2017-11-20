@@ -9,9 +9,13 @@
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
+// Helpers
+@import "helpers";
+
 // Custom SASS
 @import "styles/footer";
 @import "styles/navbar";
 
 @import "styles/pages/homepage";
 @import "styles/pages/search/scholarship";
+@import "styles/pages/scholarship/show-detail";

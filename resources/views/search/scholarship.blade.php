@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid ce-search-scholarship">
+<div class="container-fluid ce-search-scholarship py-3">
     <!-- Scholarship Search Form Row -->
     <div class="row ce-scholarship-search-form-row px-0 py-3 mx-0">
         <scholarship-search-form :class-names="{
@@ -35,8 +35,8 @@
     </div><!-- End of Scholarship Search Form Row -->
 
 
-         <!-- Scholarship Search Result -->
-    <div class="row ce-sholarship-search-results-row px-0 mx-0 my-4">
+    <!-- Scholarship Search Result -->
+    <div class="row ce-scholarship-search-results-row px-0 mx-0 pt-3 mt-3">
         <scholarship-search-results></scholarship-search-results>
     </div><!-- End of Scholarship Search Result -->
 
