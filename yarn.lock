@@ -1559,7 +1559,7 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@^0.28.3:
+css-loader@^0.28.3, css-loader@^0.28.7:
   version "0.28.7"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.7.tgz#5f2ee989dd32edd907717f953317656160999c1b"
   dependencies:
@@ -6492,6 +6492,24 @@ vue-loader@^13.0.5:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
+vue-loader@^13.5.0:
+  version "13.5.0"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-13.5.0.tgz#52f7b3790a267eff80012b77ea187a54586dd5d4"
+  dependencies:
+    consolidate "^0.14.0"
+    hash-sum "^1.0.2"
+    loader-utils "^1.1.0"
+    lru-cache "^4.1.1"
+    postcss "^6.0.8"
+    postcss-load-config "^1.1.0"
+    postcss-selector-parser "^2.0.0"
+    prettier "^1.7.0"
+    resolve "^1.4.0"
+    source-map "^0.6.1"
+    vue-hot-reload-api "^2.2.0"
+    vue-style-loader "^3.0.0"
+    vue-template-es2015-compiler "^1.6.0"
+
 vue-style-loader@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.3.tgz#623658f81506aef9d121cdc113a4f5c9cac32df7"
@@ -6506,13 +6524,20 @@ vue-template-compiler@^2.0.0:
     de-indent "^1.0.2"
     he "^1.1.0"
 
+vue-template-compiler@^2.5.8:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.8.tgz#826ae77e1d5faa7fa5fca554f33872dde38de674"
+  dependencies:
+    de-indent "^1.0.2"
+    he "^1.1.0"
+
 vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
 vue@^2.1.10:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.2.tgz#fd367a87bae7535e47f9dc5c9ec3b496e5feb5a4"
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.8.tgz#f855c1c27255184a82225f4bef225473e8faf15b"
 
 vuex@^3.0.1:
   version "3.0.1"

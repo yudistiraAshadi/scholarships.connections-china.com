@@ -1,0 +1,26 @@
+
+.ce-university-show-detail
+{
+    background-color: $main-bg;
+
+    .card
+    {
+        margin-bottom: 1.25rem;
+
+        .fa-ul
+        {
+            margin-left: 1.5rem;
+        }
+    }
+
+    .ce-university-basic-information
+    {
+        .card > .card-body
+        {
+            img.ce-university-logo
+            {
+                width: 12rem;
+            }
+        }
+    }
+}

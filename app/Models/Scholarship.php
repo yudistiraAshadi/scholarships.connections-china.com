@@ -41,10 +41,6 @@ class Scholarship extends Model
     {
         return [
             'scholarships',
-            'scholarships_scholarship_type_only',
-            'scholarships_university_name_only',
-            'scholarships_degree_type_only',
-            'scholarships_program_language_only',
             'scholarships_program_only',
         ];
     }
@@ -54,27 +50,8 @@ class Scholarship extends Model
         switch ($customSearchableAsIndex) {
             case 0:
                 return $this->toArray();
+
             case 1:
-                return [
-                    'id' => $this->id,
-                    'scholarship_type' => $this->scholarshipType->type,
-                ];
-            case 2:
-                return [
-                    'id' => $this->id,
-                    'university_name' => $this->university->name,
-                ];
-            case 3:
-                return [
-                    'id' => $this->id,
-                    'degree_type' => $this->degreeType->type,
-                ];
-            case 4:
-                return [
-                    'id' => $this->id,
-                    'program_language' => $this->programLanguage->language,
-                ];
-            case 5:
                 return [
                     'id' => $this->id,
                     'program' => $this->program,

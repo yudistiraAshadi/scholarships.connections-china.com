@@ -2,7 +2,7 @@
 
 @section('navbar')
 <nav class="navbar navbar-expand-lg navbar-light px-0 mb-2">
-    <div class="container-fluid">
+    <div class="container-fluid ce-container-inside-navbar">
         <!-- Company Logo + Name -->
         <a href="{{ url('/') }}" class="navbar-brand p-0 m-0">
             <img class="ce-csscholarship-logo" src="{{ asset('images/cs_scholarship_logo.jpg') }}" alt="Connections Scholarship Logo">
@@ -19,13 +19,13 @@
         <div class="flex-column collapse navbar-collapse" id="navbarCollapse">
             <!-- Menu for Mobile -->
             <div class="navbar-nav d-sm-block d-lg-none">
-                <a class="nav-item nav-link active" href="{{ url('/') }}">
+                <a class="{{ Request::is('/') ? 'active' : '' }} nav-item nav-link" href="{{ url('/') }}">
                     Home <span class="sr-only">(current)</span>
                 </a>
-                <a class="nav-item nav-link" href="#">Universities</a>
-                <a class="nav-item nav-link" href="{{ route('search.scholarship') }}">Scholarships</a>
-                <a class="nav-item nav-link" href="#">FAQs</a>
-                <a class="nav-item nav-link" href="#">About Us</a>
+                <a class="{{ ( Request::is('search/university') || Request::is('university/*') ) ? 'active' : '' }} nav-item nav-link" href="#">Universities</a>
+                <a class="{{ ( Request::is('search/scholarship') || Request::is('scholarship/*') ) ? 'active' : '' }} nav-item nav-link" href="{{ route('search.scholarship') }}">Scholarships</a>
+                <a class="disabled nav-item nav-link" href="#">FAQs</a>
+                <a class="disabled nav-item nav-link" href="#">About Us</a>
             </div>
 
             <!-- Menu for Laptop - Top Row -->
@@ -57,19 +57,19 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col p-0 mx-1">
-                            <a class="nav-item nav-link active text-center btn btn-block ce-btn-navbar" role="button" aria-pressed="true" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                            <a class="{{ Request::is('/') ? 'active' : '' }} nav-item nav-link text-center btn btn-block ce-btn-navbar" role="button" aria-pressed="true" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                         </div>
                         <div class="col p-0 mx-1">
-                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">Universities</a>
+                            <a class="{{ ( Request::is('search/university') || Request::is('university/*') ) ? 'active' : '' }} nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">Universities</a>
                         </div>
                         <div class="col p-0 mx-1">
-                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="{{ route('search.scholarship') }}">Scholarships</a>
+                            <a class="{{ ( Request::is('search/scholarship') || Request::is('scholarship/*') ) ? 'active' : '' }} nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="{{ route('search.scholarship') }}">Scholarships</a>
                         </div>
                         <div class="col p-0 mx-1">
-                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">FAQs</a>
+                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block disabled" role="button" aria-pressed="true" href="#">FAQs</a>
                         </div>
                         <div class="col p-0 mx-1">
-                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block" role="button" aria-pressed="true" href="#">About Us</a>
+                            <a class="nav-item nav-link text-center btn ce-btn-navbar btn-block disabled" role="button" aria-pressed="true" href="#">About Us</a>
                         </div>
                     </div>
                 </div>

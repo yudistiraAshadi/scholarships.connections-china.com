@@ -10,7 +10,7 @@
     <div class="row">
 
         <!-- University's information -->
-        <div class="col-md-4 ce-university-information">
+        <div class="col-lg-4 col-md-12 ce-university-information">
             <!-- University basic information -->
             <div class="row">
                 <div class="col-12">
@@ -30,7 +30,9 @@
                             </div>
         
                             <p class="text-right">
-                                <a href="#" class="card-link">See more</a>
+                                <a
+                                    href="{{ route( 'university.show-detail', ['id' => $scholarship->university->id] ) }}" 
+                                    class="card-link">Learn more</a>
                             </p>
                         </div>
                     </div>
@@ -69,44 +71,44 @@
 
              <!-- University photos -->
              <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-    
-                                <p class="card-title"><strong>Photos</strong></p>
-                                <div class="row">
-                                @foreach ( explode( '|', $scholarship->university->photos ) as $photo )
-                                    <div class="col-4">
-                                        <a
-                                            href="{{ $photo }}"
-                                            class="js-smartPhoto"/>
-                                            <img
-                                                src="{{ $photo }}"
-                                                alt="{{ $scholarship->university->name }}'s photo'"
-                                                class="img-fluid img-thumbnail rounded mb-3">
-                                        </a>
-                                    </div>
-                                @endforeach
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <p class="card-title"><strong>Photos</strong></p>
+                            <div class="row">
+                            @foreach ( explode( '|', $scholarship->university->photos ) as $photo )
+                                <div class="col-md-4 col-6">
+                                    <a
+                                        href="{{ $photo }}"
+                                        class="js-smartPhoto"/>
+                                        <img
+                                            src="{{ $photo }}"
+                                            alt="{{ $scholarship->university->name }}'s photo'"
+                                            class="img-fluid img-thumbnail rounded mb-3">
+                                    </a>
                                 </div>
+                            @endforeach
                             </div>
-                        </div>       
-                    </div>
-                </div><!-- End of University photos -->
+                        </div>
+                    </div>       
+                </div>
+            </div><!-- End of University photos -->
 
         </div><!-- End of University's information -->
 
 
         <!-- Scholarship's information -->
-        <div class="col-md-8 ce-scholarship-information">
+        <div class="col-lg-8 col-md-12 ce-scholarship-information">
             <div class="card">
                 <div class="card-body">
 
                     <!-- Degree -->
                     <div class="row ce-information-item">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Degree</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Degree</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             @if ( strtolower($scholarship->degreeType->type) !== 'non-degree' )
                                 <p><span class="text-capitalize">{{ $scholarship->degreeType->type }}</span> degree</p>
                             @else
@@ -117,40 +119,40 @@
 
                     <!-- Program -->
                     <div class="row ce-information-item">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Program</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Program</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <p class="text-capitalize">{{ $scholarship->program }}</p>
                         </div>
                     </div><!-- End of Program -->
 
                     <!-- Language -->
                     <div class="row ce-information-item">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Study Language</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Study Language</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <p class="text-capitalize">{{ $scholarship->programLanguage->language }}</p>
                         </div>
                     </div><!-- End of Language -->
 
                     <!-- Schoalrship Type -->
                     <div class="row ce-information-item">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Scholarship Type</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Scholarship Type</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <p class="text-capitalize-first-letter">{{ $scholarship->scholarshipType->type }} scholarship</p>
                         </div>
                     </div><!-- End of Scholarship Type -->
 
                     <!-- Benefits -->
                     <div class="row ce-information-item ce-information-list">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Benefits</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Benefits</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <ul >
                                 @foreach ( explode('|', $scholarship->benefits) as $benefit )
                                     <li class="text-capitalize-first-letter">{{ $benefit }}</li>
@@ -161,10 +163,10 @@
 
                     <!-- Requirements -->
                     <div class="row ce-information-item ce-information-list">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Requirements</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Requirements</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <ul >
                                 @foreach ( explode('|', $scholarship->requirements) as $requirement )
                                     <li class="text-capitalize-first-letter">{{ $requirement }}</li>
@@ -176,10 +178,10 @@
                     <!-- Other information -->
                     @if ( isset($scholarship->other_information) )
                         <div class="row ce-information-item">
-                            <div class="col-4">
-                                <p class="ce-information-title text-right"><strong>Other information</strong></p>
+                            <div class="col-md-4 col-sm-12">
+                                <p class="ce-information-title"><strong>Other information</strong></p>
                             </div>
-                            <div class="col-8">
+                            <div class="col-md-8 col-sm-12">
                                 <p class="text-capitalize">{{ $scholarship->other_information }}</p>
                             </div>
                         </div><!-- End of Other information -->
@@ -187,20 +189,20 @@
 
                     <!-- Number of seats -->
                     <div class="row ce-information-item">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Number of Seats</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Number of Seats</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <p class="text-capitalize">{{ $scholarship->number_of_seats }}</p>
                         </div>
                     </div><!-- End of number of seats -->
 
                      <!-- Application Deadline -->
                      <div class="row ce-information-item">
-                        <div class="col-4">
-                            <p class="ce-information-title text-right"><strong>Application Deadline</strong></p>
+                        <div class="col-md-4 col-sm-12">
+                            <p class="ce-information-title"><strong>Application Deadline</strong></p>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <p class="text-capitalize">{{ $scholarship->application_deadline }}</p>
                         </div>
                     </div><!-- End of Application Deadline -->

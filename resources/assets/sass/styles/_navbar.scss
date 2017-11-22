@@ -2,13 +2,21 @@
 // Main Navigation Bar
 .navbar
 {
+    .ce-container-inside-navbar
+    {
+        @media (max-width: 991px)
+        {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+    }
+
     .navbar-brand
     {
         img.ce-csscholarship-logo
         {
             height: 6rem;
             width: 7.3rem;
-
         }
     }
 
@@ -64,5 +72,6 @@
                 }
             }
         }
+
     }
 }

@@ -7,7 +7,11 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+
+
+// Bootstrap-vue
+@import "~bootstrap-vue/dist/bootstrap-vue";
 
 // Helpers
 @import "helpers";
@@ -19,3 +23,4 @@
 @import "styles/pages/homepage";
 @import "styles/pages/search/scholarship";
 @import "styles/pages/scholarship/show-detail";
+@import "styles/pages/university/show-detail";

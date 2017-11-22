@@ -28,29 +28,31 @@
         <div class="swiper-wrapper">
             @foreach ($universities as $university)
             <div class="swiper-slide">
-                <div class="ce-university-name-box p-1">
-                    <p class="text-center"><strong>{{ $university->name }}</strong></p>
-                </div>
-                
-                <img
-                    class="d-block w-100 img-fluid"
-                    src=
-                    @php
-                        if (isset($university->photos)) {
-
-                            if (strpos($university->photos, '|') === true) {
-                                $universityPhotos = explode("|", $university->photos);
-                                echo $universityPhotos[array_rand($universityPhotos, 1)];
+                <a href="{{ route( 'university.show-detail', ['id' => $university->id] ) }}">
+                    <div class="ce-university-name-box p-1">
+                        <p class="text-center"><strong>{{ $university->name }}</strong></p>
+                    </div>
+                    
+                    <img
+                        class="d-block w-100 img-fluid"
+                        src=
+                        @php
+                            if (isset($university->photos)) {
+    
+                                if (strpos($university->photos, '|') === true) {
+                                    $universityPhotos = explode("|", $university->photos);
+                                    echo $universityPhotos[array_rand($universityPhotos, 1)];
+                                } else {
+                                    echo $university->photos;
+                                }
+                            } elseif (! isset($university->logo)) {
+                                echo $university->logo;
                             } else {
-                                echo $university->photos;
+                                echo '';
                             }
-                        } elseif (! isset($university->logo)) {
-                            echo $university->logo;
-                        } else {
-                            echo '';
-                        }
-                    @endphp
-                    alt="{{ $university->name }}'s photo'">
+                        @endphp
+                        alt="{{ $university->name }}'s photo'">
+                </a>
             </div>
             @endforeach
         </div>
@@ -61,7 +63,7 @@
 
 
     <!-- Scholarship Search Form Row -->
-    <div class="row ce-scholarship-search-form-row px-0 mx-0">
+    <div hidden class="row ce-scholarship-search-form-row px-0 mx-0">
         <scholarship-search-form></scholarship-search-form>
     </div><!-- End of Scholarship Search Form Row -->
 
@@ -71,10 +73,15 @@
             <p><strong>All Programs</strong></p>
         </div>
 
-        <scholarship-search-results :sortable=false :perPage=5></scholarship-search-results>
+        <scholarship-search-results
+            :sortable=false
+            :per-page=5
+            :show-results-per-page=false
+            :show-pagination-navbar=false>
+        </scholarship-search-results>
         
-        <div class="w-100 text-center">
-            <a href="#" class="btn btn-success"><strong>More</strong></a>
+        <div class="w-100 text-center mt-3">
+            <a href="{{ route('search.scholarship') }}" class="btn btn-success"><strong>More</strong></a>
         </div>
     </div><!-- End of Scholarship Search Result -->
 
@@ -162,24 +169,26 @@
     
         <!-- Applying Steps Row -->
         <div class="row ce-applying-steps-row px-0 mx-0 py-5">
-            <div class="col empty"></div>
-            <div class="col ce-circle-one">
+            <div class="col-lg empty"></div>
+            <div class="col-lg col-md ce-circle">
                 <img src="{{ asset('images/applying_steps/step1.png') }}" alt="Step 1">
             </div>
-            <div class="col empty"></div>
-            <div class="col ce-circle-two">
+            <div class="col-lg empty"></div>
+            <div class="col-lg col-md ce-circle">
                 <img src="{{ asset('images/applying_steps/step2.png') }}" alt="Step 2">
             </div>
-            <div class="col empty"></div>
-            <div class="col ce-circle-three">
+            <div class="col-lg empty"></div>
+            <div class="col-lg col-md ce-circle">
                 <img src="{{ asset('images/applying_steps/step3.png') }}" alt="Step 3">
             </div>
-            <div class="col empty"></div>
-            <div class="col ce-circle-four">
+            <div class="col-lg empty"></div>
+            <div class="col-lg col-md ce-circle">
                 <img src="{{ asset('images/applying_steps/step4.png') }}" alt="Step 4">
             </div>
-            <div class="col empty"></div>
+            <div class="col-lg empty"></div>
         </div><!-- End of Applying Steps Row -->
+
+
     </div>
 </div>
 @endsection
@@ -222,6 +231,17 @@
             navigation: {
                 nextEl: '.ce-swiper-container-bg-color .swiper-button-next',
                 prevEl: '.ce-swiper-container-bg-color .swiper-button-prev',
+            },
+            breakpoints: {
+                1100: {
+                    slidesPerView: 3
+                },
+                800: {
+                    slidesPerView: 2,
+                },
+                450: {
+                    slidesPerView: 1,
+                },
             },
         });         
     });

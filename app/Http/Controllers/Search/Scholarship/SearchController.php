@@ -31,38 +31,15 @@ class SearchController extends Controller
     public function advancedSearchOptions()
     {
         // Get all the models related to the search options
-        $scholarshipTypesCollection = ScholarshipType::all();
-        $universitiesCollection = University::all();
-        $degreeTypesCollection = DegreeType::all();
-        $programLanguagesCollection = ProgramLanguage::all();
-
-
-        // Break down the models into array of strings
-        $scholarshipTypes = [];
-        foreach ($scholarshipTypesCollection as $scholarshipType) {
-            $scholarshipTypes[] = $scholarshipType->type;
-        };
-        
-        $universityNames = [];
-        foreach ($universitiesCollection as $university) {
-            $universityNames[] = $university->name;
-        };
-
-        $degreeTypes = [];
-        foreach ($degreeTypesCollection as $degreeType) {
-            $degreeTypes[] = $degreeType->type;
-        };
-
-        $programLanguages = [];
-        foreach ($programLanguagesCollection as $programLanguage) {
-            $programLanguages[] = $programLanguage->language;
-        };
-        
+        $scholarshipTypes = ScholarshipType::all();
+        $universities = University::all();
+        $degreeTypes = DegreeType::all();
+        $programLanguages = ProgramLanguage::all();
 
         // Return an array of search options
         return [
             'scholarship_types' => $scholarshipTypes,
-            'university_names' => $universityNames,
+            'universities' => $universities,
             'degree_types' => $degreeTypes,
             'program_languages' => $programLanguages,
         ];
@@ -77,76 +54,54 @@ class SearchController extends Controller
     {
         // Assign request inputs to variables
         $scholarshipTypeRequest = $request->input('scholarship_type');
-        $universityNameRequest = $request->input('university_name');
+        $universityRequest = $request->input('university');
         $degreeTypeRequest = $request->input('degree_type');
         $programLanguageRequest = $request->input('program_language');
         $programRequest = $request->input('program');
 
 
         // Search indices based on the input and combine all the results
-        $result = Scholarship::all();
+        $result = Scholarship::orderBy('created_at', 'desc')->get();
 
-        if (isset($scholarshipTypeRequest) && !empty($scholarshipTypeRequest)) {
-            
-            $scholarshipType = Scholarship::search($scholarshipTypeRequest)
-                ->within('scholarships_scholarship_type_only')
-                ->get();
-                
-            if (! empty($scholarshipType)) {
-                $result = $result->intersect($scholarshipType);
-            }
+        if ( isset($scholarshipTypeRequest) && !empty($scholarshipTypeRequest) ) {
+
+            $result = $result->where('scholarship_type_id', $scholarshipTypeRequest);
         }
 
-        if (isset($universityNameRequest) && !empty($universityNameRequest)) {
+        if ( isset($universityRequest) && !empty($universityRequest) ) {
 
-            $universityName = Scholarship::search($universityNameRequest)
-                ->within('scholarships_university_name_only')
-                ->get();
-
-            if (! empty($universityName)) {
-                $result = $result->intersect($universityName);
-            }
+            $result = $result->where('university_id', $universityRequest);
         }
 
-        if (isset($degreeTypeRequest) && !empty($degreeTypeRequest)) {
+        if ( isset($degreeTypeRequest) && !empty($degreeTypeRequest) ) {
 
-            $degreeType = Scholarship::search($degreeTypeRequest)
-                ->within('scholarships_degree_type_only')
-                ->get();
-
-            if (! empty($degreeType)) {
-                $result = $result->intersect($degreeType);
-            }
+            $result = $result->where('degree_type_id', $degreeTypeRequest);
         }
         
-        if (isset($programLanguageRequest) && !empty($programLanguageRequest)) {
+        if ( isset($programLanguageRequest) && !empty($programLanguageRequest) ) {
             
-            $programLanguage = Scholarship::search($programLanguageRequest)
-                ->within('scholarships_program_language_only')
-                ->get();
-                
-            if (! empty($programLanguage)) {
-                $result = $result->intersect($programLanguage);
-            }
+            $result = $result->where('program_language_id', $programLanguageRequest);
         }
 
-        if (isset($programRequest) && !empty($programRequest)) {
+        if ( isset($programRequest) && !empty($programRequest) ) {
 
             $program = Scholarship::search($programRequest)
                 ->within('scholarships_program_only')
                 ->get();
 
-            if (! empty($program)) {
+            if ( !empty($program) ) {
                 $result = $result->intersect($program);
             }
         }
 
         // Return thre result's collection along with the relationships
-        return $result->load(
-            'university',
-            'programLanguage',
-            'scholarshipType',
-            'degreeType'
-        );
+        return $result
+            ->values()
+            ->load(
+                'university',
+                'programLanguage',
+                'scholarshipType',
+                'degreeType'
+            );
     }
 }

@@ -24,6 +24,11 @@ Route::get('/', 'HomepageController@index');
 Route::get('/scholarship/{id}', 'ScholarshipController@show');
 
 /**
+ * University Detail page
+ */
+Route::get('/university/{id}', 'UniversityController@show')->name('university.show-detail');
+
+/**
  * Search pages
  */
 Route::group([

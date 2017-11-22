@@ -12772,6 +12772,239 @@ a.text-dark:hover {
   visibility: hidden !important;
 }
 
+.b-form-group.form-group.is-invalid .invalid-feedback {
+  display: block !important;
+}
+
+.b-form-group.form-group.is-valid .invalid-feedback {
+  display: none !important;
+}
+
+input.form-control[type=color],
+input.form-control[type=range] {
+  height: 36px;
+  height: 2.25rem;
+}
+
+input.form-control.form-control-sm[type=color],
+.input-group-sm > input.form-control[type=color],
+.input-group-sm > .input-group-btn > input.form-control[type=color].btn,
+input.form-control.form-control-sm[type=range],
+.input-group-sm > input.form-control[type=range],
+.input-group-sm > .input-group-btn > input.form-control[type=range].btn {
+  height: 31px;
+  height: 1.9375rem;
+}
+
+input.form-control.form-control-lg[type=color],
+.input-group-lg > input.form-control[type=color],
+.input-group-lg > .input-group-btn > input.form-control[type=color].btn,
+input.form-control.form-control-lg[type=range],
+.input-group-lg > input.form-control[type=range],
+.input-group-lg > .input-group-btn > input.form-control[type=range].btn {
+  height: 48px;
+  height: 3rem;
+}
+
+input.form-control[type=color] {
+  padding: 8px 8px;
+  padding: .25rem .25rem;
+}
+
+input.form-control.form-control-sm[type=color],
+.input-group-sm > input.form-control[type=color],
+.input-group-sm > .input-group-btn > input.form-control[type=color].btn {
+  padding: 4px 5px;
+  padding: .125rem .125rem;
+}
+
+.custom-file-input.focus ~ .custom-file-control[data-v-b939464a],
+.custom-file-input:focus ~ .custom-file-control[data-v-b939464a] {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: 0;
+}
+
+.custom-file-input.is-invalid.focus ~ .custom-file-control[data-v-b939464a],
+.custom-file-input.is-invalid:focus ~ .custom-file-control[data-v-b939464a],
+.was-validated .custom-file-input:invalid.focus ~ .custom-file-control[data-v-b939464a],
+.was-validated .custom-file-input:invalid:focus ~ .custom-file-control[data-v-b939464a] {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  border-color: #dc3545;
+}
+
+.custom-file-input.is-valid.focus ~ .custom-file-control[data-v-b939464a],
+.custom-file-input.is-valid:focus ~ .custom-file-control[data-v-b939464a],
+.was-validated .custom-file-input:valid.focus ~ .custom-file-control[data-v-b939464a],
+.was-validated .custom-file-input:valid:focus ~ .custom-file-control[data-v-b939464a] {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  border-color: #28a745;
+}
+
+.custom-file-control[data-v-b939464a] {
+  overflow: hidden;
+}
+
+.custom-file-control[data-v-b939464a] {
+  overflow: hidden;
+}
+
+.custom-file-control.dragging[data-v-b939464a] {
+  overflow: hidden;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
+
+.custom-file-control[data-selected][data-v-b939464a]::after {
+  content: attr(data-selected);
+}
+
+.custom-file-control[data-choose][data-v-b939464a]::before {
+  content: attr(data-choose);
+}
+
+.custom-file .drop-here[data-v-b939464a] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  z-index: 99999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.custom-file .drop-here[data-v-b939464a]::before {
+  color: #fff;
+  content: attr(data-drop);
+}
+
+.modal-dialog-centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.modal-dialog-centered .modal-content {
+  width: 100%;
+}
+
+.page-item[data-v-440179cf] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.page-item.disabled[data-v-440179cf] {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.page-item .page-link.active[data-v-440179cf]:focus {
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  z-index: 1;
+}
+
+.page-item[data-v-0ebab88f] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.page-item.disabled[data-v-0ebab88f] {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.page-item .page-link.active[data-v-0ebab88f]:focus {
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  z-index: 1;
+}
+
+.progress-bar {
+  -webkit-transition: width .6s ease;
+  transition: width .6s ease;
+}
+
+table.b-table.table-fixed {
+  table-layout: fixed;
+}
+
+table.b-table > tfoot > tr > th,
+table.b-table > thead > tr > th {
+  position: relative;
+}
+
+table.b-table > tfoot > tr > th.sorting,
+table.b-table > thead > tr > th.sorting {
+  padding-right: 1.5em;
+  cursor: pointer;
+}
+
+table.b-table tfoot > tr > th.sorting:after,
+table.b-table tfoot > tr > th.sorting:before,
+table.b-table thead > tr > th.sorting:after,
+table.b-table thead > tr > th.sorting:before {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  opacity: .4;
+  padding-bottom: inherit;
+  font-size: inherit;
+  line-height: 180%;
+}
+
+table.b-table > tfoot > tr > th.sorting:before,
+table.b-table > thead > tr > th.sorting:before {
+  right: .75em;
+  content: "\2191";
+}
+
+table.b-table > tfoot > tr > th.sorting:after,
+table.b-table > thead > tr > th.sorting:after {
+  right: .25em;
+  content: "\2193";
+}
+
+table.b-table > tfoot > tr > th.sorting_asc:after,
+table.b-table > tfoot > tr > th.sorting_desc:before,
+table.b-table > thead > tr > th.sorting_asc:after,
+table.b-table > thead > tr > th.sorting_desc:before {
+  opacity: 1;
+}
+
+table.b-table[aria-busy=false] {
+  opacity: 1;
+}
+
+table.b-table[aria-busy=true] {
+  opacity: .6;
+}
+
 .text-capitalize-first-letter::first-letter {
   text-transform: capitalize;
 }
@@ -12829,6 +13062,13 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   padding: 0;
 }
 
+@media (max-width: 991px) {
+  .navbar .ce-container-inside-navbar {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
 .navbar .navbar-brand img.ce-csscholarship-logo {
   height: 6rem;
   width: 7.3rem;
@@ -12875,9 +13115,6 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
       */
   /**
       * University Carousel Row
-      */
-  /**
-      * Scholarship Search Form
       */
   /**
       * Scholarship Search Results
@@ -12933,10 +13170,6 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   bottom: 0;
 }
 
-.ce-homepage .ce-scholarship-search-form-row {
-  display: none !important;
-}
-
 .ce-homepage .ce-sholarship-search-results-row .btn {
   min-width: 10rem;
 }
@@ -12985,6 +13218,18 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   height: 100%;
 }
 
+.ce-homepage .ce-applying-steps-row .ce-circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .ce-search-scholarship {
   background-color: #f9f9f9;
 }
@@ -13031,5 +13276,21 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
 
 .ce-scholarship-show-detail .ce-scholarship-information .card > .card-body .ce-information-list ul {
   padding-left: 1.1rem;
+}
+
+.ce-university-show-detail {
+  background-color: #f9f9f9;
+}
+
+.ce-university-show-detail .card {
+  margin-bottom: 1.25rem;
+}
+
+.ce-university-show-detail .card .fa-ul {
+  margin-left: 1.5rem;
+}
+
+.ce-university-show-detail .ce-university-basic-information .card > .card-body img.ce-university-logo {
+  width: 12rem;
 }
 

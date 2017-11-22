@@ -30,12 +30,12 @@
                         class="custom-control-input"
                         type="radio"
                         id="scholarshipType"
-                        :value="scholarshipTypeOption"
+                        :value="scholarshipTypeOption.id"
                         v-model="scholarshipType"
                         @keyup.enter.prevent="search">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">
-                            &nbsp;{{ scholarshipTypeOption | capitalize }} Scholarship
+                            &nbsp;{{ scholarshipTypeOption.type | capitalize }} Scholarship
                         </span>
                 </label>
             </div>
@@ -44,14 +44,14 @@
 
         <!-- University Name Select -->
         <div :class="classNames['search-form__university-name']">
-            <label for="universityName" :class="classNames['search-form__university-name__label']"><strong>University</strong></label>
+            <label for="university" :class="classNames['search-form__university-name__label']"><strong>University</strong></label>
             <div :class="classNames['search-form__university-name__input-wrapper']">
-                <select id="universityName" class="custom-select" v-model="universityName">
+                <select id="university" class="custom-select" v-model="university">
                 <option value="" selected>All</option>
                 <option 
-                    v-for="universityNameOption in searchOptions.university_names"
-                    :value="universityNameOption">
-                    {{ universityNameOption }}    
+                    v-for="universityOption in searchOptions.universities"
+                    :value="universityOption.id">
+                    {{ universityOption.name }}    
                 </option>
             </select>
             </div>
@@ -83,12 +83,12 @@
                         class="custom-control-input"
                         type="radio" 
                         id="degreeType"
-                        :value="degreeTypeOption" 
+                        :value="degreeTypeOption.id" 
                         v-model="degreeType"
                         @keyup.enter.prevent="search">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">
-                            &nbsp;{{ degreeTypeOption | capitalize }}
+                            &nbsp;{{ degreeTypeOption.type | capitalize }}
                         </span>
                 </label>
             </div>
@@ -122,12 +122,12 @@
                         class="custom-control-input"
                         type="radio" 
                         id="programLanguage"
-                        :value="programLanguageOption" 
+                        :value="programLanguageOption.id" 
                         v-model="programLanguage"
                         @keyup.enter.prevent="search">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">
-                            &nbsp;{{ programLanguageOption | capitalize }}
+                            &nbsp;{{ programLanguageOption.language | capitalize }}
                         </span>
                 </label>
             </div>
@@ -162,6 +162,18 @@ import { mapActions } from 'vuex';
 
 export default {
     props: {
+        firstQuery: {
+            type: Object,
+            default: function () {
+                return {
+                    scholarshipType: '',
+                    university: '',
+                    degreeType: '',
+                    programLanguage: '',
+                    program: ''
+                }
+            }
+        },
         classNames: {
             type: Object,
             default: function () {
@@ -207,11 +219,11 @@ export default {
             searchOptions: [],
 
             // Data as value that we will send as a search query
-            scholarshipType: '',
-            universityName: '',
-            degreeType: '',
-            programLanguage: '',
-            program: '',
+            scholarshipType: this.firstQuery.scholarshipType,
+            university: this.firstQuery.university,
+            degreeType: this.firstQuery.degreeType,
+            programLanguage: this.firstQuery.programLanguage,
+            program: this.firstQuery.program,
         }
     },
     methods: {
@@ -221,7 +233,7 @@ export default {
         search: function () {
             axios.post('/api/search/advanced/scholarship', {
                     scholarship_type: this.scholarshipType,
-                    university_name: this.universityName,
+                    university: this.university,
                     degree_type: this.degreeType,
                     program_language: this.programLanguage,
                     program: this.program
