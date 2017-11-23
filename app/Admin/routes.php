@@ -14,4 +14,6 @@ Route::group([
 
     $router->resource('universities', UniversityController::class);
 
+    $router->resource('scholarships', ScholarshipController::class);
+
 });

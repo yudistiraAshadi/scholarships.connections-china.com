@@ -25,12 +25,23 @@
             align-items: center;
         }
 
-        .ce-scholarship-search-form
+        .ce-scholarship-search-form-inside-carousel
         {
             position: absolute;
             z-index: 10;
             background-color: rgba($color: #000000, $alpha: 0.5);
             color: #fff;
+            height: 100%;
+
+            @media screen and (min-width: 768px)
+            {
+                width: 100%;
+            }
+
+            @media screen and (min-width: 992px)
+            {
+                width: 60%;
+            }
         }
     }
 

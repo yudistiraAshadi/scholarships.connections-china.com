@@ -17,9 +17,21 @@ class SearchController extends Controller
      * Show the scholarship search page.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('search.scholarship');
+        $scholarshipType = $request->query('scholarship_type');
+        $university = $request->query('university');
+        $degreeType = $request->query('degree_type');
+        $programLanguage = $request->query('program_language');
+        $program = $request->query('program');
+
+        return view('search.scholarship', [
+            'scholarshipType' => $scholarshipType,
+            'university' => $university,
+            'degreeType' => $degreeType,
+            'programLanguage' => $programLanguage,
+            'program' => $program
+        ]);
     }
 
 

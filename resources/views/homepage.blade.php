@@ -9,6 +9,171 @@
 <div class="container-fluid ce-homepage px-0">
     <!-- Main Carousel Row -->
     <div class="row ce-main-carousel-row swiper-container px-0 mx-0">
+
+        <!-- Scholarship Search Form -->
+        <div class="row ce-scholarship-search-form-inside-carousel px-0 pt-3 mx-0 d-none d-md-block">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><strong>Browse and Apply 2018 China Scholarships</strong></h3>
+                    </div>
+                </div>
+            
+                <form role="form" method="GET" action="{{ route('search.scholarship') }}">
+                    <!-- Scholarship Type Radio-->
+                    <div class="form-group row">
+                        <label
+                            for="scholarship-type"
+                            class="col-md-2 col-sm-12">
+                            <strong>Category</strong>
+                        </label>
+            
+                        <div class="col-md-10 col-sm-12">
+                            <label class="custom-control custom-radio">
+                                <input
+                                    class="custom-control-input"
+                                    type="radio"
+                                    id="scholarship-type"
+                                    value=""
+                                    name="scholarship_type"
+                                    checked="checked">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">&nbsp;All</span>
+                            </label>
+            
+                            @foreach ( $scholarshipTypes as $scholarshipTypeOption )
+                            <label
+                                class="custom-control custom-radio">
+                                <input
+                                    class="custom-control-input"
+                                    type="radio"
+                                    id="scholarship-type"
+                                    name="scholarship_type"
+                                    value="{{ $scholarshipTypeOption->id }}">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">
+                                        &nbsp;{{ ucfirst($scholarshipTypeOption->type) }} Scholarship
+                                    </span>
+                            </label>
+                            @endforeach
+                        </div>
+                    </div><!-- End of Scholarship Type Radio-->
+            
+            
+                    <!-- University Name Select -->
+                    <div class="form-group row">
+                        <label for="university" class="col-md-2 col-sm-12"><strong>University</strong></label>
+                        <div class="col-md-10 col-sm-12">
+                            <select id="university" class="custom-select" name="university">
+                            <option value="" selected>All</option>
+                            @foreach ( $universities as $universityOption )
+                            <option 
+                                value="{{ $universityOption->id }}">
+                                {{ ucfirst($universityOption->name) }}    
+                            </option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div><!-- End of University Name Select -->
+            
+            
+                    <!-- Degree Type Radio -->
+                    <div class="form-group row">
+                        <label for="degree-type" class="col-md-2 col-sm-12"><strong>Degree</strong></label>
+            
+                        <div class="col-md-10 col-sm-12">
+                            <label class="custom-control custom-radio">
+                                <input
+                                    class="custom-control-input"
+                                    type="radio"
+                                    id="degree-type"
+                                    value=""
+                                    name="degree_type"
+                                    checked="checked">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">&nbsp;All</span>
+                            </label>
+            
+                            @foreach ( $degreeTypes as $degreeTypeOption )
+                            <label
+                                class="custom-control custom-radio">
+                                <input 
+                                    class="custom-control-input"
+                                    type="radio" 
+                                    id="degree-type"
+                                    value="{{ $degreeTypeOption->id }}" 
+                                    name="degree_type">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">
+                                        &nbsp;{{ ucfirst($degreeTypeOption->type) }}
+                                    </span>
+                            </label>
+                            @endforeach
+                        </div>
+                    </div><!-- End of Degree Type Radio -->
+            
+            
+                    <!-- Program Language Radio -->
+                    <div class="form-group row">
+                        <label for="program-language" class="col-md-2 col-sm-12">
+                            <strong>Language</strong>
+                        </label>
+                        <div class="col-md-10 col-sm-12">
+                            <label class="custom-control custom-radio">
+                                <input
+                                    class="custom-control-input"
+                                    type="radio"
+                                    id="program-language"
+                                    value=""
+                                    name="program_language"
+                                    checked="checked">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">&nbsp;All</span>
+                            </label>
+
+                            @foreach ( $programLanguages as $programLanguageOption )
+                            <label
+                                class="custom-control custom-radio">
+                                <input
+                                    class="custom-control-input"
+                                    type="radio" 
+                                    id="program-language"
+                                    value="{{ $programLanguageOption->id }}" 
+                                    name="program_language">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">
+                                        &nbsp;{{ ucfirst($programLanguageOption->language) }}
+                                    </span>
+                            </label>
+                            @endforeach
+                        </div>
+                    </div><!-- End of Program Language Radio -->
+            
+            
+                    <!-- Program Input -->
+                    <div class="form-group row">
+                        <label for="program" class="col-md-2 col-sm-12"><strong>Program</strong></label>
+                        <div class="col-md-10 col-sm-12">
+                            <input type="text" id="program" class="form-control"
+                                names="program">
+                        </div>
+                    </div><!-- End of Program Input -->
+            
+            
+                    <!-- Submit Button -->
+                    <div class="form-group row">
+                        <div class="col-md-10 col-sm-12 offset-md-2">
+                            <button type="submit" class="btn btn-primary">
+                                <strong>Search</strong>
+                            </button>
+                        </div>
+                    </div><!-- End of Submit Button -->
+                </form>
+
+            </div>
+        </div><!-- End of Scholarship Search Form -->
+
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img class="d-block w-100" src="{{ asset('images/main_carousel/1.jpg') }}" alt="First slide">
@@ -60,18 +225,178 @@
         <div class="swiper-button-next swiper-button-white"></div>
         <div class="swiper-button-prev swiper-button-white"></div>
     </div><!-- End of University Carousel Row -->
+    
 
+    <!-- Scholarship Search Form -->
+    <div class="row ce-scholarship-search-form-row py-2 mx-2 d-block d-md-none card">
+            
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3><strong>Browse and Apply 2018 China Scholarships</strong></h3>
+                </div>
+            </div>
+        
+            <form role="form" method="GET" action="{{ route('search.scholarship') }}">
+                <!-- Scholarship Type Radio-->
+                <div class="form-group row">
+                    <label
+                        for="scholarship-type"
+                        class="col-md-2 col-sm-12">
+                        <strong>Category</strong>
+                    </label>
+        
+                    <div class="col-md-10 col-sm-12">
+                        <label class="custom-control custom-radio">
+                            <input
+                                class="custom-control-input"
+                                type="radio"
+                                id="scholarship-type"
+                                value=""
+                                name="scholarship_type"
+                                checked="checked">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">&nbsp;All</span>
+                        </label>
+        
+                        @foreach ( $scholarshipTypes as $scholarshipTypeOption )
+                        <label
+                            class="custom-control custom-radio">
+                            <input
+                                class="custom-control-input"
+                                type="radio"
+                                id="scholarship-type"
+                                name="scholarship_type"
+                                value="{{ $scholarshipTypeOption->id }}">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">
+                                    &nbsp;{{ ucfirst($scholarshipTypeOption->type) }} Scholarship
+                                </span>
+                        </label>
+                        @endforeach
+                    </div>
+                </div><!-- End of Scholarship Type Radio-->
+        
+        
+                <!-- University Name Select -->
+                <div class="form-group row">
+                    <label for="university" class="col-md-2 col-sm-12"><strong>University</strong></label>
+                    <div class="col-md-10 col-sm-12">
+                        <select id="university" class="custom-select" name="university">
+                        <option value="" selected>All</option>
+                        @foreach ( $universities as $universityOption )
+                        <option 
+                            value="{{ $universityOption->id }}">
+                            {{ ucfirst($universityOption->name) }}    
+                        </option>
+                        @endforeach
+                    </select>
+                    </div>
+                </div><!-- End of University Name Select -->
+        
+        
+                <!-- Degree Type Radio -->
+                <div class="form-group row">
+                    <label for="degree-type" class="col-md-2 col-sm-12"><strong>Degree</strong></label>
+        
+                    <div class="col-md-10 col-sm-12">
+                        <label class="custom-control custom-radio">
+                            <input
+                                class="custom-control-input"
+                                type="radio"
+                                id="degree-type"
+                                value=""
+                                name="degree_type"
+                                checked="checked">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">&nbsp;All</span>
+                        </label>
+        
+                        @foreach ( $degreeTypes as $degreeTypeOption )
+                        <label
+                            class="custom-control custom-radio">
+                            <input 
+                                class="custom-control-input"
+                                type="radio" 
+                                id="degree-type"
+                                value="{{ $degreeTypeOption->id }}" 
+                                name="degree_type">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">
+                                    &nbsp;{{ ucfirst($degreeTypeOption->type) }}
+                                </span>
+                        </label>
+                        @endforeach
+                    </div>
+                </div><!-- End of Degree Type Radio -->
+        
+        
+                <!-- Program Language Radio -->
+                <div class="form-group row">
+                    <label for="program-language" class="col-md-2 col-sm-12">
+                        <strong>Language</strong>
+                    </label>
+                    <div class="col-md-10 col-sm-12">
+                        <label class="custom-control custom-radio">
+                            <input
+                                class="custom-control-input"
+                                type="radio"
+                                id="program-language"
+                                value=""
+                                name="program_language"
+                                checked="checked">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">&nbsp;All</span>
+                        </label>
 
-    <!-- Scholarship Search Form Row -->
-    <div hidden class="row ce-scholarship-search-form-row px-0 mx-0">
-        <scholarship-search-form></scholarship-search-form>
-    </div><!-- End of Scholarship Search Form Row -->
+                        @foreach ( $programLanguages as $programLanguageOption )
+                        <label
+                            class="custom-control custom-radio">
+                            <input
+                                class="custom-control-input"
+                                type="radio" 
+                                id="program-language"
+                                value="{{ $programLanguageOption->id }}" 
+                                name="program_language">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">
+                                    &nbsp;{{ ucfirst($programLanguageOption->language) }}
+                                </span>
+                        </label>
+                        @endforeach
+                    </div>
+                </div><!-- End of Program Language Radio -->
+        
+        
+                <!-- Program Input -->
+                <div class="form-group row">
+                    <label for="program" class="col-md-2 col-sm-12"><strong>Program</strong></label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" id="program" class="form-control"
+                            names="program">
+                    </div>
+                </div><!-- End of Program Input -->
+        
+        
+                <!-- Submit Button -->
+                <div class="form-group row">
+                    <div class="col-md-10 col-sm-12 offset-md-2">
+                        <button type="submit" class="btn btn-primary">
+                            <strong>Search</strong>
+                        </button>
+                    </div>
+                </div><!-- End of Submit Button -->
+            </form>
+
+        </div>
+    </div><!-- End of Scholarship Search Form -->
+            
 
     <!-- Scholarship Search Result -->
     <div class="row ce-sholarship-search-results-row px-0 mx-0 my-4">
-        <div class="ce-search-results-top-border w-100">
+        <!-- <div class="ce-search-results-top-border w-100">
             <p><strong>All Programs</strong></p>
-        </div>
+        </div> -->
 
         <scholarship-search-results
             :sortable=false

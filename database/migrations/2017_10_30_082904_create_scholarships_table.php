@@ -21,7 +21,7 @@ class CreateScholarshipsTable extends Migration
             $table->text('benefits')->nullable();
             $table->text('requirements')->nullable();
             $table->text('other_information')->nullable();
-            $table->text('program');
+            $table->string('program');
             $table->integer('program_language_id')->unsigned()->index();
 
             // Scopes

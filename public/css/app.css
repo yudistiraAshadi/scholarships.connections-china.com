@@ -13141,11 +13141,24 @@ footer .ce-footer-column.ce-footer-contact-information dl dd ul {
   align-items: center;
 }
 
-.ce-homepage .ce-main-carousel-row .ce-scholarship-search-form {
+.ce-homepage .ce-main-carousel-row .ce-scholarship-search-form-inside-carousel {
   position: absolute;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .ce-homepage .ce-main-carousel-row .ce-scholarship-search-form-inside-carousel {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .ce-homepage .ce-main-carousel-row .ce-scholarship-search-form-inside-carousel {
+    width: 60%;
+  }
 }
 
 .ce-homepage .ce-university-carousel-row .swiper-slide {

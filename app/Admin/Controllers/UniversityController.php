@@ -75,16 +75,17 @@ class UniversityController extends Controller
 
             $grid->id('ID')->sortable();
 
-            $grid->column('logo')->display(function ($imageUrl) {
-                return "<img
-                    src=$imageUrl
-                    alt='$this->name logo'
-                    style='width: 70px; height: 70px'>";
-            });
+            $grid->column('logo')->image($this, 70, 70);
+
             $grid->column('name')->sortable();
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->column('introduction')->display( function ($text) {
+                return str_limit($text, 100, '...');
+            });
+
+            $grid->column('country')->sortable();
+            $grid->column('governing_district')->sortable();
+            $grid->column('major_municipality')->sortable();
         });
     }
 
@@ -100,9 +101,11 @@ class UniversityController extends Controller
             $form->display('id', 'ID');
 
             $form->text('name', 'University Name');
+            
             $form->image('logo', 'University Logo')->fit(70, 70, function ($constraint) {
                 $constraint->upsize();
             })->uniqueName();
+
             $form->textarea('introduction', 'University Introduction (optional)');
 
             $form->text('country', 'Country')->default('China');
